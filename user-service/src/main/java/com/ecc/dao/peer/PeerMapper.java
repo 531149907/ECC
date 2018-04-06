@@ -13,7 +13,7 @@ public interface PeerMapper {
     @Select("select * from t_peer where email = #{arg0}")
     Peer getPeerByEmail(String email);
 
-    @Select("select * form t_peer where ip = #{arg0}")
+    @Select("select * from t_peer where ip = #{arg0}")
     Peer getPeerByIp(String ip);
 
     @Update("update t_peer set ip = #{ip}, port = #{port}, dir = #{dir}")

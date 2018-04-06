@@ -18,13 +18,20 @@ import com.ecc.web.exceptions.CryptoExcetion;
 import com.ecc.web.exceptions.FileException;
 import com.ecc.web.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
 
 import static com.ecc.constants.PeerConstants.PATH_TEMP;
+import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
 public class Api {
@@ -44,7 +51,7 @@ public class Api {
     @Autowired
     UserApi userApi;
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public Peer regTest(@RequestParam("email") String email,
                         @RequestParam("channel") String channel,
                         @RequestParam("level") String level,
@@ -52,13 +59,13 @@ public class Api {
         return peerService.register(email, channel, level, dir);
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public Peer loginTest(@RequestParam("email") String email,
                           @RequestParam("dir") String dir) throws UserException {
         return peerService.login(email, dir);
     }
 
-    @PostMapping("/upload")
+    @PostMapping("upload")
     public void uploadTest(@RequestParam("file") String file,
                            @RequestParam("password") String password) throws Exception {
         try {
@@ -70,12 +77,22 @@ public class Api {
         transferService.uploadFile(filePath);
     }
 
-    @PostMapping("/store")
-    public void storeTest(@RequestPart("multipart") MultipartFile multipart) throws FileException {
-        transferService.storeFile(multipart);
+    @RequestMapping(value = "store", method = RequestMethod.POST, consumes = MULTIPART_FORM_DATA_VALUE)
+    public void storeTest(@RequestPart("file") MultipartFile file) throws FileException {
+        System.out.println(file.getOriginalFilename());
+
+        try {
+            Files.createFile(Paths.get("/Users/zhouzhixuan/Desktop/200.PNG"));
+            File file1 = new File("/Users/zhouzhixuan/Desktop/200.PNG");
+            file.transferTo(file1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        transferService.storeFile(file);
     }
 
-    @PostMapping("/contract")
+    @PostMapping("contract")
     public void processContractTest(@RequestBody Contract contract) throws ContractException {
         ContractHandler contractHandler = ContractHandlerImpl.getHandler();
         FileTransaction transaction = fileApi.getTransaction(contract.getTransactionId(), contract.getTransactionType());

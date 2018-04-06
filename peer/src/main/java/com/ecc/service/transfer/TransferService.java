@@ -18,11 +18,11 @@ import com.ecc.util.crypto.HashUtil;
 import com.ecc.util.crypto.RsaUtil;
 import com.ecc.web.api.ContractApi;
 import com.ecc.web.api.FileApi;
+import com.ecc.web.api.FileUploadApi;
 import com.ecc.web.api.UserApi;
 import com.ecc.web.exceptions.FileException;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,6 +35,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -59,6 +60,8 @@ public class TransferService {
     @Autowired
     FileApi fileApi;
     @Autowired
+    FileUploadApi fileUploadApi;
+    @Autowired
     ContractApi contractApi;
 
     public void encryptFile(String path, String password) throws Exception {
@@ -77,7 +80,9 @@ public class TransferService {
 
         File uploadFile = Paths.get(filePath).toFile();
 
-        List<Path> shardPaths = transferHandler.splitFile(filePath);
+        //List<Path> shardPaths = transferHandler.splitFile(filePath);
+        List<Path> shardPaths = new ArrayList<>();
+        shardPaths.add(Paths.get(filePath));
         List<String> peerList = peerService.getPeerList(shardPaths.size());
 
         PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getPeer().getEmail()).getPrivateKey();
@@ -108,6 +113,7 @@ public class TransferService {
             contractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
             sendFileAndTransaction(shardPaths.get(i), transaction);
             sendContract(contract);
+            Thread.sleep(1000);
         }
 
         transferHandler.deleteTempShards();
@@ -187,14 +193,11 @@ public class TransferService {
     }
 
     private void sendFileAndTransaction(Path filePath, FileTransaction transaction) {
-        HashMap<String, Object> params = new HashMap<>();
-        params.put("transaction", transaction);
-        params.put("multipart", new FileSystemResource(filePath.toFile()));
-
         //todo: 传输 transaction 和 file 给 file service
         try {
-            MultipartFile file = new MockMultipartFile(filePath.getFileName().toString(), new FileInputStream(filePath.toFile()));
-            fileApi.receiveFileAndTransaction(new Gson().toJson(transaction), file);
+            InputStream inputStream = new FileInputStream(filePath.toFile());
+            MultipartFile file = new MockMultipartFile("file", inputStream);
+            fileUploadApi.receiveFileAndTransaction(new Gson().toJson(transaction), file);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -46,7 +46,7 @@ public class ShardUtil {
     }
 
     private static List<Path> splitOnMacOS(String fileName, String fileDir) throws Exception {
-        String scriptPath = "./src/main/resources/tools/shard/macOS/encoder";
+        String scriptPath = "./peer/src/main/resources/tools/shard/macOS/encoder";
         String[] command = new String[]{
                 scriptPath,
                 fileDir + fileName,

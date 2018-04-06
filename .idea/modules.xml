@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/ECC.iml" filepath="$PROJECT_DIR$/ECC.iml" />
       <module fileurl="file://$PROJECT_DIR$/contract-service/contract-service.iml" filepath="$PROJECT_DIR$/contract-service/contract-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/file-service/file-servcie.iml" filepath="$PROJECT_DIR$/file-service/file-servcie.iml" />
       <module fileurl="file://$PROJECT_DIR$/file-service/file-service.iml" filepath="$PROJECT_DIR$/file-service/file-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/peer/peer.iml" filepath="$PROJECT_DIR$/peer/peer.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />

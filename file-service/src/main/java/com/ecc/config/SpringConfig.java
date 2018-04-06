@@ -3,6 +3,8 @@ package com.ecc.config;
 import com.ecc.service.common.net.RestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
@@ -19,5 +21,13 @@ public class SpringConfig {
         commonsMultipartResolver.setMaxUploadSize(200000000);
         commonsMultipartResolver.setMaxInMemorySize(4096);
         return commonsMultipartResolver;
+    }
+
+    @Bean
+    public TaskExecutor taskExecutor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(8);
+        executor.setMaxPoolSize(20);
+        return executor;
     }
 }

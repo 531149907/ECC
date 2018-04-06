@@ -21,8 +21,8 @@ public class RestTemplate {
 
     public RestTemplate() {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-        factory.setReadTimeout(30 * 1000);
-        factory.setConnectTimeout(30 * 1000);
+        factory.setReadTimeout(60000);
+        factory.setConnectTimeout(60000);
 
         this.restTemplate = new org.springframework.web.client.RestTemplate(factory);
         List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();

@@ -50,7 +50,7 @@ public class PeerService {
         Peer.getPeer().setChannel(channel);
         Peer.getPeer().setLevel(level);
         Peer.getPeer().setIp(NetworkUtil.getLocalAddress());
-        Peer.getPeer().setPort(29606);
+        Peer.getPeer().setPort(29626);
         Peer.getPeer().setDir(dir);
         Peer.getPeer().setPublicKey(RsaUtil.getKeyInString(keyStorage.getPublicKey()));
         Peer.getPeer().setRegDate(DateUtil.getDate());
