@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="contract-service" />
+        <module name="eureka-server" />
+        <module name="file-servcie" />
+        <module name="file-service" />
+        <module name="peer" />
+        <module name="user-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="contract-service" target="1.8" />
+      <module name="ECC" target="1.5" />
+      <module name="eureka-server" target="1.8" />
+      <module name="file-servcie" target="1.8" />
+      <module name="file-service" target="1.8" />
+      <module name="peer" target="1.8" />
+      <module name="user-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
