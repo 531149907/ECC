@@ -2,12 +2,12 @@ package com.ecc.web;
 
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.transaction.impl.FileTransaction;
-import com.ecc.service.ContractScan;
-import com.ecc.service.common.net.RestTemplate;
+import com.ecc.service.RestTemplate;
 import com.ecc.service.contract.ContractHandler;
 import com.ecc.service.contract.ContractService;
 import com.ecc.service.contract.impl.ContractHandlerImpl;
 import com.ecc.util.crypto.RsaUtil;
+import com.ecc.web.api.BlockServiceApi;
 import com.ecc.web.api.FileServiceApi;
 import com.ecc.web.api.UserServiceApi;
 import com.ecc.web.exceptions.ContractException;
@@ -30,7 +30,7 @@ public class ContractServiceApi {
     @Autowired
     RestTemplate restTemplate;
     @Autowired
-    ContractScan contractScan;
+    BlockServiceApi blockServiceApi;
 
     @PostMapping("verify")
     public void verifyReceiverSignedContract(@RequestBody Contract contract) throws ContractException {
@@ -43,7 +43,7 @@ public class ContractServiceApi {
                 RsaUtil.getPublicKeyFromString(publicKey))) {
             contractService.saveTempContract(contract);
             System.out.println("Contract verified! Waiting for 10 contracts and send to Block Service!");
-            contractScan.scan();
+            blockServiceApi.sendToBlockService(contract);
             return;
         }
         throw new ContractException("Contract verify failed!", 500);

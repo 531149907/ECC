@@ -6,12 +6,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
 @Component
 @FeignClient("block-service")
 public interface BlockServiceApi {
 
-    @RequestMapping(value = "upload",method = RequestMethod.POST)
-    void sendToBlockService(List<Contract> contracts);
+    @RequestMapping(value = "upload", method = RequestMethod.POST)
+    void sendToBlockService(Contract contracts);
 }

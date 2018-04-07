@@ -2,7 +2,7 @@ package com.ecc.service.contract.impl;
 
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.transaction.TransactionType;
-import com.ecc.exceptions.ContractException;
+import com.ecc.service.exceptions.ContractException;
 import com.ecc.service.contract.ContractHandler;
 import com.ecc.util.crypto.RsaUtil;
 

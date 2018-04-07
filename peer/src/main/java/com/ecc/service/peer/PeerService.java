@@ -3,7 +3,6 @@ package com.ecc.service.peer;
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.security.KeyStorage;
 import com.ecc.service.block.BlockService;
-import com.ecc.service.common.net.RestTemplate;
 import com.ecc.service.contract.ContractService;
 import com.ecc.service.transaction.TransactionService;
 import com.ecc.service.transfer.TransferService;
@@ -18,16 +17,15 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
 
+import java.security.KeyException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.ecc.constants.PeerConstants.SERVER_PUBLIC_KEY;
+import static com.ecc.constants.ApplicationConstants.SERVER_PUBLIC_KEY;
 
 @Service
 public class PeerService {
-    @Autowired
-    RestTemplate restTemplate;
     @Autowired
     BlockService blockService;
     @Autowired
@@ -42,7 +40,7 @@ public class PeerService {
     @Autowired
     UserServiceApi userServiceApi;
 
-    public Peer register(String email, String channel, String level, String dir) throws UserException {
+    public Peer register(String email, String channel, String level, String dir) throws UserException, KeyException {
         RsaUtil.generateKeyPair(email);
         KeyStorage keyStorage = RsaUtil.loadKeyPair(email);
 
@@ -63,7 +61,7 @@ public class PeerService {
         throw new UserException("Email already been registered!");
     }
 
-    public Peer login(String email, String dir) throws UserException {
+    public Peer login(String email, String dir) throws UserException, KeyException {
         if (RsaUtil.loadKeyPair(email).getPrivateKey() != null) {
 
             //todo: get value from server

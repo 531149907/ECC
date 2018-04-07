@@ -1,9 +1,6 @@
 package com.ecc.web;
 
 import com.ecc.service.transfer.TransferService;
-import com.ecc.web.api.ContractServiceApi;
-import com.ecc.web.api.FileServiceApi;
-import com.ecc.web.api.UserServiceApi;
 import com.ecc.web.exceptions.CryptoExcetion;
 import com.ecc.web.exceptions.FileException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Paths;
 
-import static com.ecc.constants.PeerConstants.PATH_TEMP;
+import static com.ecc.constants.ApplicationConstants.PATH_TEMP;
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController

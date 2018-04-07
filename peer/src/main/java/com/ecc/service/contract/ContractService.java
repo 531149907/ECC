@@ -13,6 +13,7 @@ import com.ecc.web.exceptions.ContractException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.KeyException;
 import java.security.PrivateKey;
 
 @Service
@@ -26,7 +27,7 @@ public class ContractService {
     @Autowired
     UserServiceApi userServiceApi;
 
-    public void receiverSignContract(Contract contract) throws ContractException {
+    public void receiverSignContract(Contract contract) throws ContractException, KeyException {
         ContractHandler contractHandler = ContractHandlerImpl.getHandler();
         FileTransaction transaction = fileServiceApi.getTransaction(contract.getTransactionId(), contract.getTransactionType());
 

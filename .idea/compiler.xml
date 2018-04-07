@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="block-service" />
+        <module name="common" />
         <module name="contract-service" />
         <module name="eureka-server" />
         <module name="file-servcie" />
@@ -18,8 +19,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="block-service" target="1.8" />
+      <module name="common" target="1.5" />
       <module name="contract-service" target="1.8" />
-      <module name="ECC" target="1.5" />
+      <module name="ECC" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="file-servcie" target="1.8" />
       <module name="file-service" target="1.8" />

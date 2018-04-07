@@ -2,10 +2,10 @@ package com.ecc.service.block.impl;
 
 import com.ecc.domain.block.Block;
 import com.ecc.domain.contract.Contract;
-import com.ecc.exceptions.BlockException;
+import com.ecc.service.RestTemplate;
 import com.ecc.service.block.BlockHandler;
-import com.ecc.service.common.net.RestTemplate;
 import com.ecc.service.contract.impl.ContractHandlerImpl;
+import com.ecc.service.exceptions.BlockException;
 import com.ecc.util.converter.BytesUtil;
 import com.ecc.util.converter.DateUtil;
 import lombok.Getter;
@@ -19,8 +19,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.ecc.constants.PeerConstants.PATH_BLOCK;
-import static com.ecc.constants.PeerConstants.SUFFIX_BLOCK;
+import static com.ecc.constants.ApplicationConstants.PATH_BLOCK;
+import static com.ecc.constants.ApplicationConstants.SUFFIX_BLOCK;
 
 public class BlockHandlerImpl implements BlockHandler {
     private static final Path blockBasePath = Paths.get(PATH_BLOCK);
@@ -213,7 +213,7 @@ public class BlockHandlerImpl implements BlockHandler {
             }
 
             //todo: 从 order service 获取缺失的 blocks(service 根据hash是否一致，返回不一致hash的blocks), Key->index
-            HashMap<String, Block> missingBlocks = (HashMap<String, Block>) connection.post("", blockHashMap,null);
+            HashMap<String, Block> missingBlocks = (HashMap<String, Block>) connection.post("", blockHashMap, null);
 
             for (String index : missingBlocks.keySet()) {
                 Path blockPath = Paths.get(PATH_BLOCK + index + SUFFIX_BLOCK);
@@ -252,7 +252,7 @@ public class BlockHandlerImpl implements BlockHandler {
         }
 
         //todo: 获取Peer列表
-        List<String> peerList = (List<String>) restTemplate.get("", null,null);
+        List<String> peerList = (List<String>) restTemplate.get("", null, null);
         peerList = peerList.subList(0, (int) (peerList.size() * 0.4));
 
         HashMap<String, List<Contract>> contractCollection = new HashMap<>();
@@ -262,7 +262,7 @@ public class BlockHandlerImpl implements BlockHandler {
             HashMap<String, Object> contractIdCollection = new HashMap<>();
             contractIdCollection.put("contract_ids", missingIds);
             contractIdCollection.put("block_id", maxBlockIndex);
-            contractCollection.put(peer, (List<Contract>) restTemplate.post("",null,null));
+            contractCollection.put(peer, (List<Contract>) restTemplate.post("", null, null));
         }
 
         for (String contractId : missingIds) {

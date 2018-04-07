@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.KeyException;
+
 @RestController
 public class PeerApi {
     @Autowired
@@ -20,13 +22,13 @@ public class PeerApi {
     public Peer register(@RequestParam("email") String email,
                          @RequestParam("channel") String channel,
                          @RequestParam("level") String level,
-                         @RequestParam("dir") String dir) throws UserException {
+                         @RequestParam("dir") String dir) throws UserException, KeyException {
         return peerService.register(email, channel, level, dir);
     }
 
     @PostMapping("login")
     public Peer login(@RequestParam("email") String email,
-                      @RequestParam("dir") String dir) throws UserException {
+                      @RequestParam("dir") String dir) throws UserException, KeyException {
         return peerService.login(email, dir);
     }
 }

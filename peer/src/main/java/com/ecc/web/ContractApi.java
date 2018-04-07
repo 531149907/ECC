@@ -10,6 +10,8 @@ import com.ecc.web.exceptions.ContractException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.KeyException;
+
 @RestController
 public class ContractApi {
     @Autowired
@@ -25,7 +27,7 @@ public class ContractApi {
     ContractServiceApi contractServiceApi;
 
     @PostMapping("contract")
-    public void receiverSign(@RequestBody Contract contract) throws ContractException {
+    public void receiverSign(@RequestBody Contract contract) throws ContractException, KeyException {
         contractService.receiverSignContract(contract);
     }
 }

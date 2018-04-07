@@ -3,8 +3,8 @@ package com.ecc.service.transfer;
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.transaction.impl.FileTransaction;
+import com.ecc.service.RestTemplate;
 import com.ecc.service.block.BlockService;
-import com.ecc.service.common.net.RestTemplate;
 import com.ecc.service.contract.ContractHandler;
 import com.ecc.service.contract.ContractService;
 import com.ecc.service.contract.impl.ContractHandlerImpl;
@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import static com.ecc.constants.PeerConstants.PATH_STORE;
+import static com.ecc.constants.ApplicationConstants.PATH_STORE;
 
 @Service
 public class TransferService {

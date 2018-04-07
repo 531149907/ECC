@@ -2,7 +2,6 @@ package com.ecc.util.crypto;
 
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.security.KeyStorage;
-import com.ecc.exceptions.KeyException;
 import com.ecc.util.converter.Base64Util;
 import com.ecc.util.converter.BytesUtil;
 import sun.misc.BASE64Decoder;
@@ -20,7 +19,7 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
-import static com.ecc.constants.PeerConstants.*;
+import static com.ecc.constants.ApplicationConstants.*;
 
 public final class RsaUtil {
     private static final Path KEY_BASE_PATH = Paths.get(PATH_KEY);
@@ -70,7 +69,7 @@ public final class RsaUtil {
         }
     }
 
-    public static KeyStorage loadKeyPair(String email) {
+    public static KeyStorage loadKeyPair(String email) throws KeyException {
         email = HashUtil.hash(email);
         Path publicKeyPath = Paths.get(PATH_KEY + email + SUFFIX_PUBLIC_KEY);
         Path privateKeyPath = Paths.get(PATH_KEY + email + SUFFIX_PRIVATE_KEY);
@@ -150,7 +149,7 @@ public final class RsaUtil {
         return null;
     }
 
-    public static String sign(String rawMessage) {
+    public static String sign(String rawMessage) throws KeyException {
         KeyStorage keyStorage = RsaUtil.loadKeyPair(Peer.getPeer().getEmail());
         PrivateKey privateKey = keyStorage.getPrivateKey();
         String hashedMessage = HashUtil.hash(rawMessage);

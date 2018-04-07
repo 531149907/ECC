@@ -6,7 +6,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ecc.constants.PeerConstants.PATH_TEMP;
+import static com.ecc.constants.ApplicationConstants.PATH_TEMP;
 
 public class ShardUtil {
     public static final String SPLIT_MODE = "split_mode";
@@ -64,7 +64,7 @@ public class ShardUtil {
 
         Process ps = Runtime.getRuntime().exec(command);
         ps.waitFor();
-        Files.deleteIfExists(Paths.get(fileDir+fileName));
+        Files.deleteIfExists(Paths.get(fileDir + fileName));
 
         LocateFileVisitor fileVisitor = new LocateFileVisitor(fileName);
         Files.walkFileTree(Paths.get(PATH_TEMP), fileVisitor);
@@ -93,9 +93,9 @@ public class ShardUtil {
 
         LocateFileVisitor(String fileName) {
             String[] var0 = fileName.split("\\.");
-            if(var0.length != 1){
-                this.fileName = fileName.replace("."+var0[var0.length-1],"");
-            }else{
+            if (var0.length != 1) {
+                this.fileName = fileName.replace("." + var0[var0.length - 1], "");
+            } else {
                 this.fileName = fileName;
             }
         }
@@ -106,7 +106,7 @@ public class ShardUtil {
 
         @Override
         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-            if(file.getFileName().toString().contains(fileName)){
+            if (file.getFileName().toString().contains(fileName)) {
                 paths.add(file);
             }
             return FileVisitResult.CONTINUE;

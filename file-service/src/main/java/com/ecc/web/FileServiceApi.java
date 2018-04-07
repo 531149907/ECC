@@ -4,8 +4,8 @@ import com.ecc.dao.transaction.TransactionMapper;
 import com.ecc.dao.transfer.TransferMapper;
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.transaction.impl.FileTransaction;
-import com.ecc.service.common.net.RestTemplate;
-import com.ecc.web.api.UserService;
+import com.ecc.service.RestTemplate;
+import com.ecc.web.api.UserServiceApi;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -13,13 +13,11 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.UUID;
 
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
@@ -33,7 +31,7 @@ public class FileServiceApi {
     @Autowired
     RestTemplate restTemplate;
     @Autowired
-    UserService userService;
+    UserServiceApi userServiceApi;
     @Autowired
     TaskExecutor taskExecutor;
 
@@ -54,7 +52,7 @@ public class FileServiceApi {
         transferMapper.addFileTransaction(transaction);
 
         String holderEmail = transaction.getHolder();
-        Peer peer = userService.getPeer(holderEmail, "");
+        Peer peer = userServiceApi.getPeer(holderEmail, "");
         String holderIP = peer.getIp();
         Integer holderPort = peer.getPort();
 

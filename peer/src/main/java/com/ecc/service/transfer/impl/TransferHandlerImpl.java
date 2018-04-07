@@ -8,12 +8,11 @@ import lombok.Getter;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.ecc.constants.PeerConstants.PATH_DOWNLOAD;
-import static com.ecc.constants.PeerConstants.PATH_TEMP;
+import static com.ecc.constants.ApplicationConstants.PATH_DOWNLOAD;
+import static com.ecc.constants.ApplicationConstants.PATH_TEMP;
 
 public class TransferHandlerImpl implements TransferHandler {
     private static TransferHandlerImpl handler = new TransferHandlerImpl();

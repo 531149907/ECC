@@ -1,6 +1,6 @@
 package com.ecc.service.contract;
 
-import com.ecc.dao.contract.ContractMapper;
+import com.ecc.dao.ContractMapper;
 import com.ecc.domain.contract.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
