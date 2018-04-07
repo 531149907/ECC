@@ -1,17 +1,15 @@
 package com.ecc.service.contract.impl;
 
 import com.ecc.domain.contract.Contract;
-import com.ecc.domain.transaction.Transaction;
 import com.ecc.domain.transaction.TransactionType;
 import com.ecc.exceptions.ContractException;
-import com.ecc.service.common.net.RestTemplate;
 import com.ecc.service.contract.ContractHandler;
 import com.ecc.util.crypto.RsaUtil;
 
 import java.security.PublicKey;
-import java.util.HashMap;
 
-import static com.ecc.domain.contract.Contract.*;
+import static com.ecc.domain.contract.Contract.VERIFY_RECEIVER_SIGN;
+import static com.ecc.domain.contract.Contract.VERIFY_SENDER_SIGN;
 
 public class ContractHandlerImpl implements ContractHandler {
 

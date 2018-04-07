@@ -6,20 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="block-service" />
         <module name="contract-service" />
         <module name="eureka-server" />
         <module name="file-servcie" />
         <module name="file-service" />
+        <module name="orderer-service" />
         <module name="peer" />
         <module name="user-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="block-service" target="1.8" />
       <module name="contract-service" target="1.8" />
       <module name="ECC" target="1.5" />
       <module name="eureka-server" target="1.8" />
       <module name="file-servcie" target="1.8" />
       <module name="file-service" target="1.8" />
+      <module name="orderer-service" target="1.8" />
       <module name="peer" target="1.8" />
       <module name="user-service" target="1.8" />
     </bytecodeTargetLevel>

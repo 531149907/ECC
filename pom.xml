@@ -15,6 +15,8 @@
         <module>file-service</module>
         <module>peer</module>
         <module>contract-service</module>
+        <module>block-service</module>
+        <module>orderer-service</module>
     </modules>
 
 </project>

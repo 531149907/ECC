@@ -1,6 +1,8 @@
 package com.ecc.service.block;
 
+import com.ecc.domain.contract.Contract;
 import com.ecc.domain.peer.Peer;
+import com.ecc.service.block.impl.BlockHandlerImpl;
 import com.ecc.service.common.net.RestTemplate;
 import com.ecc.service.contract.ContractService;
 import com.ecc.service.peer.PeerService;
@@ -11,14 +13,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BlockService {
-    @Autowired
-    RestTemplate restTemplate;
-    @Autowired
-    TransferService transferService;
-    @Autowired
-    ContractService contractService;
-    @Autowired
-    TransactionService transactionService;
-    @Autowired
-    PeerService peerService;
+
+    public void addContractToBlock(Contract contract){
+        BlockHandler blockHandler = BlockHandlerImpl.getHandler();
+        blockHandler.addContractToBlock(contract);
+    }
 }

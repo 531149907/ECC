@@ -1,14 +1,15 @@
 package com.ecc.web;
 
-import com.ecc.dao.contract.ContractMapper;
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.transaction.impl.FileTransaction;
+import com.ecc.service.ContractScan;
 import com.ecc.service.common.net.RestTemplate;
 import com.ecc.service.contract.ContractHandler;
+import com.ecc.service.contract.ContractService;
 import com.ecc.service.contract.impl.ContractHandlerImpl;
 import com.ecc.util.crypto.RsaUtil;
-import com.ecc.web.api.FileService;
-import com.ecc.web.api.UserService;
+import com.ecc.web.api.FileServiceApi;
+import com.ecc.web.api.UserServiceApi;
 import com.ecc.web.exceptions.ContractException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,37 +22,40 @@ import java.util.HashMap;
 public class ContractServiceApi {
 
     @Autowired
-    ContractMapper contractMapper;
+    ContractService contractService;
     @Autowired
-    UserService userService;
+    UserServiceApi userServiceApi;
     @Autowired
-    FileService fileService;
+    FileServiceApi fileServiceApi;
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    ContractScan contractScan;
 
     @PostMapping("verify")
-    public void verifySignedContract(@RequestBody Contract contract) throws ContractException {
-        FileTransaction transaction = fileService.getTransaction(contract.getTransactionId(),
+    public void verifyReceiverSignedContract(@RequestBody Contract contract) throws ContractException {
+        FileTransaction transaction = fileServiceApi.getTransaction(contract.getTransactionId(),
                 contract.getTransactionType());
         String holder = transaction.getHolder();
-        String publicKey = userService.getPeer(holder, "").getPublicKey();
+        String publicKey = userServiceApi.getPeer(holder, "").getPublicKey();
         ContractHandler contractHandler = ContractHandlerImpl.getHandler();
         if (contractHandler.verify(Contract.VERIFY_RECEIVER_SIGN, contract,
                 RsaUtil.getPublicKeyFromString(publicKey))) {
-            //todo: sent to block service
-            System.out.println("Finished! contract verified!");
+            contractService.saveTempContract(contract);
+            System.out.println("Contract verified! Waiting for 10 contracts and send to Block Service!");
+            contractScan.scan();
             return;
         }
         throw new ContractException("Contract verify failed!", 500);
     }
 
     @PostMapping("upload")
-    public void receiveContract(@RequestBody Contract contract) {
-        FileTransaction transaction = fileService.getTransaction(contract.getTransactionId(),
+    public void receiveSenderSignedContract(@RequestBody Contract contract) {
+        FileTransaction transaction = fileServiceApi.getTransaction(contract.getTransactionId(),
                 contract.getTransactionType());
         String holder = transaction.getHolder();
-        String host = userService.getPeer(holder, "").getIp();
-        Integer port = userService.getPeer(holder, "").getPort();
+        String host = userServiceApi.getPeer(holder, "").getIp();
+        Integer port = userServiceApi.getPeer(holder, "").getPort();
 
         HashMap<String, Object> params = new HashMap<>();
         params.put("contract", contract);

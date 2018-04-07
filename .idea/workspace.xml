@@ -2,44 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00173f48-50a9-4112-a617-38455b700efd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_annotations_3_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_feign_feign_core_8_18_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_feign_feign_jackson_8_18_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_3_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_openfeign_form_feign_form_spring_3_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_jcip_jcip_annotations_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_animal_sniffer_annotation_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadApi.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileUploadApi.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/peer/src/test/java/com/ecc/util/ShardTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eureka-server/target/classes/com/ecc/eurekaserver/EurekaServerApplication.class" afterPath="$PROJECT_DIR$/eureka-server/target/classes/com/ecc/eurekaserver/EurekaServerApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/FileServiceApplication.class" afterPath="$PROJECT_DIR$/file-service/target/classes/com/ecc/FileServiceApplication.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/block-service.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/config/SpringConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/constants/PeerConstants.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/block/Block.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/common/Hashable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/contract/Contract.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/peer/Peer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/security/KeyStorage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/transaction/Transaction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/transaction/TransactionType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/transaction/impl/FileTransaction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/transaction/impl/TicketTransaction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/BlockException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/ContractException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/KeyException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/RestException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/StateException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/StorageException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/block/BlockHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/block/BlockService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/block/MerkleTreeHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/block/impl/BlockHandlerImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/block/impl/MerkleTreeHandlerImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/common/net/RestTemplate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/ContractHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/ContractService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/peer/PeerService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transaction/TransactionHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transaction/TransactionService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transaction/impl/TransactionHandlerImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transfer/TransferHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transfer/TransferService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transfer/impl/TransferHandlerImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/converter/Base64Util.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/converter/BytesUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/converter/DateUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/converter/OutputFormatter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/crypto/AesUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/crypto/HashUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/crypto/RsaUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/shard/ShardUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/spring/ApplicationContextUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/system/NetworkUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/BlockApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/ContractApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/FileApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/PeerApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/api/ContractServiceApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/api/FileServiceApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/api/FileServiceUploadApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/api/UserServiceApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/exceptions/ContractException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/exceptions/CryptoExcetion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/exceptions/FileException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/exceptions/UserException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/contract/ContractService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/BlockServiceApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/PeerApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/orderer-service/orderer-service.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/orderer-service/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/BlockApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/ContractApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/FileApi.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/PeerApi.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadApi.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/web/FileServiceApi$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/web/api/PeerUploadApi.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/temp" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/FileService.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/FileServiceApi.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/UserService.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/UserServiceApi.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/ContractApi.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/ContractServiceApi.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileApi.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileServiceApi.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileUploadApi.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileServiceUploadApi.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/UserApi.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/UserServiceApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/web/FileServiceApi.class" afterPath="$PROJECT_DIR$/file-service/target/classes/com/ecc/web/FileServiceApi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/PeerApplication.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/PeerApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/peer/PeerService.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/peer/PeerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transfer/TransferService.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transfer/TransferService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/shard/ShardUtil.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/shard/ShardUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/Api.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/Api.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/api/FileApi.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/api/FileApi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-service/target/classes/com/ecc/dao/peer/PeerMapper.class" afterPath="$PROJECT_DIR$/user-service/target/classes/com/ecc/dao/peer/PeerMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/api/FileUploadApi$MultipartSupportConfig.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/api/FileUploadApi$MultipartSupportConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/api/FileUploadApi.class" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/api/FileUploadApi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_archaius_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_archaius_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_core_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_ribbon_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_ribbon_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_archaius_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_archaius_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_eureka_client_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_hystrix_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_netflix_ribbon_2_0_0_BUILD_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_0_0_BUILD_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_0_0_BUILD_SNAPSHOT.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/file-service.iml" afterPath="$PROJECT_DIR$/file-service/file-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/pom.xml" afterPath="$PROJECT_DIR$/file-service/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/FileServiceApplication.java" afterPath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/FileServiceApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/config/SpringConfig.java" afterPath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/config/SpringConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/service/common/net/RestTemplate.java" afterPath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/service/common/net/RestTemplate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/ContractServiceApplication.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/ContractServiceApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/config/SpringConfig.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/config/SpringConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/contract/ContractMapper.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/contract/ContractMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractScan.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractScan.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/FileServiceApi.java" afterPath="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/FileServiceApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/peer.iml" afterPath="$PROJECT_DIR$/peer/peer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/pom.xml" afterPath="$PROJECT_DIR$/peer/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/PeerApplication.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/PeerApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/config/SpringConfig.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/config/SpringConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockService.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/peer/PeerService.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/peer/PeerService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/util/shard/ShardUtil.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/util/shard/ShardUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileApi.java" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/peer/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/peer/target/classes/application.properties" afterPath="$PROJECT_DIR$/peer/target/classes/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-service/src/main/java/com/ecc/dao/peer/PeerMapper.java" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/ecc/dao/peer/PeerMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-service/pom.xml" afterPath="$PROJECT_DIR$/user-service/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-service/user-service.iml" afterPath="$PROJECT_DIR$/user-service/user-service.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,6 +125,8 @@
     <ignored path="$PROJECT_DIR$/file-service/target/" />
     <ignored path="$PROJECT_DIR$/peer/target/" />
     <ignored path="$PROJECT_DIR$/contract-service/target/" />
+    <ignored path="$PROJECT_DIR$/block-service/target/" />
+    <ignored path="$PROJECT_DIR$/orderer-service/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,64 +136,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TransferService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="156" column="77" lean-forward="false" selection-start-line="156" selection-start-column="77" selection-end-line="156" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-674">
-              <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUploadApi.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileUploadApi.java">
+      <file leaf-file-name="ContractException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/ContractException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-              <folding>
-                <element signature="e#1492#1493#0" expanded="true" />
-                <element signature="e#1546#1547#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileServiceApi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/FileServiceApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="65" column="11" lean-forward="true" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestTemplate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/service/common/net/RestTemplate.java">
+      <file leaf-file-name="BlockServiceApi.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/BlockServiceApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PeerUploadApi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+            <state relative-caret-position="210">
+              <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,11 +158,81 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileServiceApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/FileServiceApplication.java">
+      <file leaf-file-name="ContractHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/ContractHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EurekaServerApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/ecc/eurekaserver/EurekaServerApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/block/Block.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/converter/DateUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/transaction/TransactionType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContractService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/ContractService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestTemplate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/common/net/RestTemplate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transaction/TransactionService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -153,19 +258,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
-        <option value="$PROJECT_DIR$/user-service/src/main/java/com/ecc/UserServiceApplication.java" />
-        <option value="$PROJECT_DIR$/user-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/peer/PeerApplication.java" />
-        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/ContractApi.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/UserApi.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/GlobalExceptionHandler.java" />
-        <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/Application.java" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/UserService.java" />
         <option value="$PROJECT_DIR$/contract-service/pom.xml" />
-        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/ContractServiceApplication.java" />
         <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/UserService.java" />
         <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/FileService.java" />
         <option value="$PROJECT_DIR$/contract-service/src/main/resources/application.properties" />
@@ -178,18 +275,40 @@
         <option value="$PROJECT_DIR$/peer/pom.xml" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/config/MultipartSupportConfig.java" />
         <option value="$PROJECT_DIR$/peer/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileUploadApi.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/PeerApplication.java" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/FileServiceApplication.java" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadService.java" />
         <option value="$PROJECT_DIR$/file-service/pom.xml" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadApi.java" />
-        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/service/common/net/RestTemplate.java" />
         <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/config/SpringConfig.java" />
-        <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/FileServiceApi.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/config/SpringConfig.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/peer/PeerService.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileUploadApi.java" />
+        <option value="$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/FileServiceApi.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/UserApi.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/FileApi.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/PeerApi.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockService.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/ContractServiceApi.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/FileServiceApi.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/UserServiceApi.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/contract/ContractMapper.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/contract/ContractService.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/PeerApi.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/ContractApi.java" />
+        <option value="$PROJECT_DIR$/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/orderer-service/pom.xml" />
+        <option value="$PROJECT_DIR$/block-service/pom.xml" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/ContractServiceApplication.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/config/SpringConfig.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractScan.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/BlockServiceApi.java" />
       </list>
     </option>
   </component>
@@ -212,11 +331,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="481" />
-    <option name="y" value="43" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
-    <option name="height" value="731" />
+    <option name="height" value="751" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -237,7 +354,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -246,165 +362,12 @@
               <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
               <item name="ECC" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="file-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -428,6 +391,7 @@
       <recent name="com.ecc" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/block-service/src/main/java/com/ecc" />
       <recent name="$PROJECT_DIR$/contract-service/src/main/java/com/ecc" />
       <recent name="$PROJECT_DIR$/file-service/src/main/java/com/ecc" />
       <recent name="$PROJECT_DIR$/peer/src/main/java/com/ecc" />
@@ -447,6 +411,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.FileServiceApplication">
+    <configuration name="BlockServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.BlockServiceApplication" />
+      <option name="SHOW_IN_DASHBOARD" value="true" />
+      <module name="block-service" />
+      <envs />
+    </configuration>
     <configuration name="ContractServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.ContractServiceApplication" />
@@ -478,6 +449,13 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="file-service" />
+      <envs />
+    </configuration>
+    <configuration name="OrdererServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.OrdererServiceApplication" />
+      <option name="SHOW_IN_DASHBOARD" value="true" />
+      <module name="orderer-service" />
       <envs />
     </configuration>
     <configuration name="PeerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -606,14 +584,15 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="7">
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.EurekaServerApplication" />
       <item index="1" class="java.lang.String" itemvalue="Spring Boot.UserServiceApplication" />
       <item index="2" class="java.lang.String" itemvalue="Spring Boot.PeerApplication" />
       <item index="3" class="java.lang.String" itemvalue="Spring Boot.ContractServiceApplication" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.ShardTest.test" />
-      <item index="5" class="java.lang.String" itemvalue="Spring Boot.FileServiceApplication" />
-      <item index="6" class="java.lang.String" itemvalue="Application.FileServiceApplication" />
+      <item index="5" class="java.lang.String" itemvalue="Application.FileServiceApplication" />
+      <item index="6" class="java.lang.String" itemvalue="Spring Boot.BlockServiceApplication" />
+      <item index="7" class="java.lang.String" itemvalue="Spring Boot.OrdererServiceApplication" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -635,7 +614,8 @@
       <workItem from="1522999311279" duration="64000" />
       <workItem from="1522999391602" duration="2573000" />
       <workItem from="1523001990514" duration="3574000" />
-      <workItem from="1523006972478" duration="17035000" />
+      <workItem from="1523006972478" duration="26082000" />
+      <workItem from="1523072739989" duration="1372000" />
     </task>
     <servers />
   </component>
@@ -663,7 +643,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23246000" />
+    <option name="totallyTimeSpent" value="33665000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,16 +672,15 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33562586" sideWeight="0.503231" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33562586" sideWeight="0.49676898" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32462174" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2536349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -709,6 +688,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -755,360 +735,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/config/PeerConfig.java" />
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/ContractApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/GlobalExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="44" column="83" lean-forward="false" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/constants/PeerConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/domain/block/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/domain/common/Hashable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="58" column="21" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="58" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/config/database/MysqlConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="104" column="19" lean-forward="false" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/ContractServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/config/database/MysqlConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-service/src/main/java/com/ecc/UserServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/FileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-service/src/main/java/com/ecc/web/UserServiceApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/ecc/eurekaserver/EurekaServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/config/FeignMultipartSupportConfig.java" />
-    <entry file="file://$PROJECT_DIR$/user-service/src/main/java/com/ecc/dao/peer/PeerMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/UserApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/test/java/com/ecc/util/ShardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="40" column="58" lean-forward="false" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/util/shard/ShardUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="48" column="82" lean-forward="false" selection-start-line="48" selection-start-column="82" selection-end-line="48" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/impl/TransferHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="44" column="35" lean-forward="false" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/config/MultipartSupportConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/PeerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="77" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/peer.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.9.3/jackson-databind-2.9.3.jar!/com/fasterxml/jackson/databind/exc/InvalidDefinitionException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/mvnw.cmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="98" column="21" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="98" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="118" column="21" lean-forward="false" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/FileServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.29/tomcat-embed-core-8.5.29.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="156" column="77" lean-forward="false" selection-start-line="156" selection-start-column="77" selection-end-line="156" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/service/common/net/RestTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file-service/src/main/temp/1.PNG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/file-service/src/main/temp/1.PNG" />
     <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/config/SpringConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1125,29 +752,381 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/GlobalExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="44" column="83" lean-forward="false" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/peer/PeerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/PeerUploadApi.java" />
+    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/service/common/net/RestTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/api/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileServiceUploadApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="29" column="77" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/file-service/src/main/java/com/ecc/web/FileServiceApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="65" column="11" lean-forward="true" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+        <state relative-caret-position="168">
+          <caret line="61" column="58" lean-forward="true" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java">
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/Api.java" />
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/BlockApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-674">
-          <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+        <state relative-caret-position="30">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/FileUploadApi.java">
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/FileApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/transfer/TransferService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+          <folding>
+            <element signature="e#8120#8121#0" expanded="true" />
+            <element signature="e#8191#8192#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/PeerApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/ContractServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/api/UserServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/FileServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/UserServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/domain/peer/Peer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/domain/contract/Contract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/domain/common/Hashable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/web/ContractApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/PeerApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/contract/ContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="31" column="53" lean-forward="false" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/contract/ContractMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orderer-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="140" column="4" lean-forward="false" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2100">
+          <caret line="140" column="4" lean-forward="false" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/ContractServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding>
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/config/SpringConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="30" column="41" lean-forward="false" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding>
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1069#1070#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractScan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="38" column="56" lean-forward="true" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/api/ContractServiceApi.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/exceptions/ContractException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/ContractHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/converter/DateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/transaction/TransactionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/contract/ContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/common/net/RestTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/util/shard/ShardUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1015">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/transaction/TransactionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/ecc/eurekaserver/EurekaServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/api/BlockServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1546#1547#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

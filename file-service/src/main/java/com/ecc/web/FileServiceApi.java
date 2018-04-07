@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.UUID;
 
 import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
@@ -42,11 +45,10 @@ public class FileServiceApi {
 
     @RequestMapping(value = "upload", method = RequestMethod.POST, consumes = MULTIPART_FORM_DATA_VALUE)
     public void receiveFileAndTransaction(@RequestParam("transaction") String transaction0,
+                                          @RequestParam("fileName") String fileName,
                                           @RequestPart("file") MultipartFile file) throws Exception {
-
-        Files.createFile(Paths.get("/Users/zhouzhixuan/Desktop/100.PNG"));
-        File file1 = new File("/Users/zhouzhixuan/Desktop/100.PNG");
-        file.transferTo(file1);
+        Path tempFilePath = Paths.get("./file-service/src/main/temp/"+ fileName);
+        file.transferTo(tempFilePath.toFile());
 
         FileTransaction transaction = new Gson().fromJson(transaction0, FileTransaction.class);
         transferMapper.addFileTransaction(transaction);
@@ -55,26 +57,17 @@ public class FileServiceApi {
         Peer peer = userService.getPeer(holderEmail, "");
         String holderIP = peer.getIp();
         Integer holderPort = peer.getPort();
-/*
-        Path tempFilePath = Paths.get("./file-service/src/main/temp/" + file1.getName());
-        Path tempFileDir = Paths.get("./file-service/src/main/temp/");
-
-        if (!Files.exists(tempFileDir)) {
-            Files.createDirectories(tempFileDir);
-            Files.deleteIfExists(tempFilePath);
-            Files.createFile(tempFilePath);
-        }*/
-
-        //File tempFile = tempFilePath.toFile();
-        //file.transferTo(tempFile);
 
         taskExecutor.execute(() -> {
             HashMap<String, Object> params = new HashMap<>();
-            params.put("file", new FileSystemResource(file1));
+            params.put("fileName",fileName);
+            params.put("file", new FileSystemResource(tempFilePath.toFile()));
             restTemplate.post(holderIP + ":" + holderPort + "/store", params, null);
-            System.out.println("sent to " + holderIP + ":" + holderPort);
+            try {
+                Files.deleteIfExists(tempFilePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
-
-        System.out.println(">>> 6");
     }
 }
