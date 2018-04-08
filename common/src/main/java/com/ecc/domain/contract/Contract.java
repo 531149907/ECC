@@ -29,6 +29,7 @@ public class Contract implements Serializable, Hashable {
     private String receiverSign;
 
     private String verifier;
+    private String verifyResult;
     private String verifierSign;
 
     public String hash() {

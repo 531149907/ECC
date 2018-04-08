@@ -19,9 +19,9 @@ public class ShardTest {
 
     @Test
     public void test() throws Exception {
-        /*String fileDir = "/Users/zhouzhixuan/Desktop/test0/_local/";
+        String fileDir = "/Users/zhouzhixuan/Desktop/test0/_local/";
         String fileName = "IMG_0098.PNG";
-        String scriptPath = "Users/zhouzhixuan/Desktop/ECC/peer/src/main/resources/tools/shard/macOS/encoder";
+        String scriptPath = "./src/main/resources/tools/shard/macOS/encoder";
 
         String[] command = new String[]{
                 scriptPath,
@@ -36,11 +36,10 @@ public class ShardTest {
 
         ProcessBuilder processBuilder = new ProcessBuilder("/bin/chmod", "755", scriptPath);
         Process process = processBuilder.start();
-        process.waitFor();*/
+        process.waitFor();
 
-        Process ps = Runtime.getRuntime().exec("echo ???");
+        Process ps = Runtime.getRuntime().exec(command);
         ps.waitFor();
-
 
     }
 }

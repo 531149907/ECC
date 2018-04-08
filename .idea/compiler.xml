@@ -17,13 +17,12 @@
         <module name="user-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="block-service" target="1.8" />
-      <module name="common" target="1.5" />
+      <module name="common" target="1.8" />
       <module name="contract-service" target="1.8" />
       <module name="ECC" target="1.8" />
       <module name="eureka-server" target="1.8" />
-      <module name="file-servcie" target="1.8" />
       <module name="file-service" target="1.8" />
       <module name="orderer-service" target="1.8" />
       <module name="peer" target="1.8" />

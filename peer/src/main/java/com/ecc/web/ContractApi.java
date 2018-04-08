@@ -8,11 +8,15 @@ import com.ecc.web.api.ContractServiceApi;
 import com.ecc.web.api.FileServiceApi;
 import com.ecc.web.exceptions.ContractException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.security.KeyException;
 
 @RestController
+@RequestMapping("contract")
 public class ContractApi {
     @Autowired
     PeerService peerService;
@@ -26,8 +30,13 @@ public class ContractApi {
     @Autowired
     ContractServiceApi contractServiceApi;
 
-    @PostMapping("contract")
+    @PostMapping("sign")
     public void receiverSign(@RequestBody Contract contract) throws ContractException, KeyException {
         contractService.receiverSignContract(contract);
+    }
+
+    @PostMapping("verify")
+    public void verifyContract(@RequestBody Contract contract) throws KeyException, ContractException {
+        contractService.verifyContract(contract);
     }
 }

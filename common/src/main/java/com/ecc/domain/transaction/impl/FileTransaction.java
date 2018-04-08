@@ -19,6 +19,8 @@ public class FileTransaction extends Transaction implements Serializable, Hashab
     private String hashedFileName;
     private String fileHash;
     private String shardId;
+    private String shardFileName; //hash(hashedFileName + owner)
+    private String shardOriginalName;
     private String shardHash;
     private String owner;
     private String holder;
@@ -36,6 +38,8 @@ public class FileTransaction extends Transaction implements Serializable, Hashab
                 .append(hashedFileName)
                 .append(fileHash)
                 .append(shardId)
+                .append(shardFileName)
+                .append(shardOriginalName)
                 .append(shardHash)
                 .append(owner)
                 .append(holder)
@@ -53,6 +57,7 @@ public class FileTransaction extends Transaction implements Serializable, Hashab
         System.out.println("  Hashed file name:\t" + OutputFormatter.format(hashedFileName, 23));
         System.out.println("         File hash:\t" + OutputFormatter.format(fileHash, 23));
         System.out.println("          Shard id:\t" + OutputFormatter.format(shardId, 23));
+        System.out.println("    Shard fileName:\t" + OutputFormatter.format(shardFileName, 23));
         System.out.println("        Shard hash:\t" + OutputFormatter.format(shardHash, 23));
         System.out.println("             Owner:\t" + OutputFormatter.format(owner, 23));
         System.out.println("            Holder:\t" + OutputFormatter.format(holder, 23));

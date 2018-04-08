@@ -83,7 +83,7 @@ public class RestTemplate {
         ResponseEntity<byte[]> responseEntity = restTemplate.exchange(url, HttpMethod.POST, entity, byte[].class, new HashMap<>());
 
         Path downloadDir = Paths.get(downloadPath);
-        Path filePath = Paths.get(downloadDir.toString() + "/" + params.get("file_name") + ".downloaded");
+        Path filePath = Paths.get(downloadDir.toString() + "/" + params.get("fileName"));
         try {
             if (!Files.exists(downloadDir)) {
                 Files.createDirectories(downloadDir);

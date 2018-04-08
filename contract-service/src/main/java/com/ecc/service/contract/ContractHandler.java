@@ -7,4 +7,5 @@ import java.security.PublicKey;
 public interface ContractHandler {
 
     boolean verify(String verifyType, Contract contract, PublicKey publicKey);
+
 }
