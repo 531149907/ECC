@@ -45,6 +45,11 @@ public class TransferHandlerImpl implements TransferHandler {
     }
 
     @Override
+    public List<Path> combineFiles(String path) throws Exception {
+        return ShardUtil.dealWithFile(ShardUtil.RECOVER_MODE,path);
+    }
+
+    @Override
     public void deleteTempShards() {
         try {
             Path tempPath = Paths.get(PATH_TEMP);

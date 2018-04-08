@@ -6,6 +6,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ecc.constants.ApplicationConstants.PATH_DOWNLOAD;
 import static com.ecc.constants.ApplicationConstants.PATH_TEMP;
 
 public class ShardUtil {
@@ -82,9 +83,52 @@ public class ShardUtil {
     }
 
     private static List<Path> recover(String filePath) throws Exception {
+        String fileName = Paths.get(filePath).getFileName().toString();
+        String fileDir = Paths.get(filePath).toString().replace(fileName, "");
+        if (osPlatform.toLowerCase().contains("mac")) {
+            return recoverOnMacOS(fileName, fileDir);
+        } else if (osPlatform.toLowerCase().contains("windows")) {
+            return recoverOnWindows(fileName, fileDir);
+        } else {
+            throw new Exception("Platform not supported!");
+        }
+    }
+
+    private static List<Path> recoverOnMacOS(String fileName, String fileDir) throws Exception {
         List<Path> paths = new ArrayList<>();
 
+        String scriptPath = "./peer/src/main/resources/tools/shard/macOS/decoder";
+        String[] command = new String[]{
+                scriptPath,
+                fileName,
+                fileDir
+        };
+
+        ProcessBuilder processBuilder = new ProcessBuilder("/bin/chmod", "755", scriptPath);
+        Process process = processBuilder.start();
+        process.waitFor();
+
+        Process ps = Runtime.getRuntime().exec(command);
+        ps.waitFor();
+
+        if (ps.exitValue() != 0) {
+            throw new Exception("Cannot recover file from shards!");
+        }
+
+        LocateFileVisitor fileVisitor = new LocateFileVisitor(fileName);
+        Files.walkFileTree(Paths.get(PATH_DOWNLOAD), fileVisitor);
+
+        for (Path path : fileVisitor.getPaths()) {
+            Files.deleteIfExists(path);
+        }
+
+        paths.add(Paths.get(fileDir + fileName));
         return paths;
+    }
+
+    private static List<Path> recoverOnWindows(String fileName, String fileDir) {
+        List<Path> list = new ArrayList<>();
+        return list;
     }
 
     private static class LocateFileVisitor extends SimpleFileVisitor<Path> {

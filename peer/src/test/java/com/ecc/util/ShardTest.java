@@ -1,9 +1,15 @@
 package com.ecc.util;
 
+import com.ecc.util.shard.ShardUtil;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 ;import java.io.IOException;
 
+@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 public class ShardTest {
     public static final String SPLIT_MODE = "split_mode";
     public static final String RECOVER_MODE = "recover_mode";
@@ -41,5 +47,10 @@ public class ShardTest {
         Process ps = Runtime.getRuntime().exec(command);
         ps.waitFor();
 
+    }
+
+    @Test
+    public void test0() throws Exception {
+        ShardUtil.dealWithFile(ShardUtil.RECOVER_MODE,"/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098.PNG");
     }
 }

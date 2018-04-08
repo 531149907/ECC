@@ -104,7 +104,7 @@ public class TransferService {
                     .timestamp(DateUtil.getDate())
                     .fileLevel("LEVEL_A")
                     .build();
-            transaction.setShardFileName(HashUtil.hash(transaction.getHashedFileName()+transaction.getOwner()));
+            transaction.setShardFileName(HashUtil.hash(transaction.getHashedFileName() + transaction.getOwner()));
             Contract contract = Contract.builder()
                     .id(contractId)
                     .channel("default_queue")
@@ -122,19 +122,19 @@ public class TransferService {
         transferHandler.deleteTempShards();
     }
 
-    public void download(String ticketCode) throws TicketException {
+    public void download(String ticketCode) throws Exception {
         TicketTransaction transaction;
         try {
-            transaction = (TicketTransaction)BytesUtil.toObject(Base64Util.decode(ticketCode));
-        }catch (Exception e){
-            throw new TicketException("Ticket code not correct, unrecognized!",500);
+            transaction = (TicketTransaction) BytesUtil.toObject(Base64Util.decode(ticketCode));
+        } catch (Exception e) {
+            throw new TicketException("Ticket code not correct, unrecognized!", 500);
         }
 
-        if(!transaction.getSignFor().equals(Peer.getPeer().getEmail())){
-            throw new TicketException("Ticket usage denied! Not signed for you to view the file!",500);
+        if (!transaction.getSignFor().equals(Peer.getPeer().getEmail())) {
+            throw new TicketException("Ticket usage denied! Not signed for you to view the file!", 500);
         }
 
-        switch (transaction.getPermissions()){
+        switch (transaction.getPermissions()) {
             case PermissionType.DOWNLOAD:
                 downloadFile(transaction.getFileId());
                 break;
@@ -163,7 +163,7 @@ public class TransferService {
         Path filePath = Paths.get(PATH_STORE + fileName);
         if (Files.exists(filePath)) {
             String shardFileHash = fileServiceApi.getShardHash(fileName);
-            if(!HashUtil.hash(filePath).equals(shardFileHash)){
+            if (!HashUtil.hash(filePath).equals(shardFileHash)) {
                 throw new FileException("Shard hash not match! File maybe damaged!");
             }
             try {
@@ -199,16 +199,21 @@ public class TransferService {
         contractServiceApi.uploadSenderSignedContract(contract);
     }
 
-    private void downloadFile(String fileId){
+    private void downloadFile(String fileId) throws Exception {
         List<FileTransaction> fileTransactions = fileServiceApi.getFileTransactions(fileId);
-        for(FileTransaction transaction:fileTransactions){
-            Peer holderPeer = userServiceApi.getPeer(transaction.getHolder(),"");
+        for (FileTransaction transaction : fileTransactions) {
+            Peer holderPeer = userServiceApi.getPeer(transaction.getHolder(), "");
             String holderIp = holderPeer.getIp();
             int holderPort = holderPeer.getPort();
-            HashMap<String,Object> params = new HashMap<>();
-            params.put("fileName",transaction.getShardOriginalName());
-            restTemplate.download(holderIp+":"+holderPort+"/push",params,PATH_DOWNLOAD);
+            HashMap<String, Object> params = new HashMap<>();
+            params.put("fileName", transaction.getShardOriginalName());
+            restTemplate.download(holderIp + ":" + holderPort + "/push", params, PATH_DOWNLOAD);
         }
         //todo: combine shards
+        TransferHandler handler = TransferHandlerImpl.getHandler();
+        List<Path> downloadedFilePath = handler.combineFiles(PATH_DOWNLOAD + fileTransactions.get(0).getOriginalFileName());
+        if (downloadedFilePath.isEmpty()) {
+            throw new Exception("Failed to recover file from shards!");
+        }
     }
 }

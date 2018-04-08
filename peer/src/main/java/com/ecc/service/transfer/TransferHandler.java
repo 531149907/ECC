@@ -11,6 +11,8 @@ public interface TransferHandler {
 
     List<Path> splitFile(String path) throws Exception;
 
+    List<Path> combineFiles(String path) throws Exception;
+
     void deleteTempShards();
 
     @Deprecated

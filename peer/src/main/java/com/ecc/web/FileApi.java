@@ -40,7 +40,7 @@ public class FileApi {
     }
 
     @PostMapping("download")
-    public void download(@RequestBody String ticketCode) throws TicketException{
+    public void download(@RequestBody String ticketCode) throws Exception {
         transferService.download(ticketCode);
     }
 }
