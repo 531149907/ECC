@@ -13,7 +13,9 @@ com/ecc/web/FileApi.class
 com/ecc/util/shard/ShardUtil.class
 com/ecc/web/exceptions/CryptoExcetion.class
 com/ecc/service/transfer/impl/TransferHandlerImpl.class
+com/ecc/service/block/BlockMessageListener.class
 com/ecc/service/exceptions/StorageException.class
+com/ecc/web/api/BlockServiceApi.class
 com/ecc/util/crypto/HashUtil.class
 com/ecc/PeerApplication.class
 com/ecc/service/transfer/TransferService.class
@@ -27,6 +29,7 @@ com/ecc/service/contract/ContractService.class
 com/ecc/service/block/impl/BlockHandlerImpl.class
 com/ecc/util/crypto/RsaUtil.class
 com/ecc/web/exceptions/FileException.class
+com/ecc/web/exceptions/TicketException.class
 com/ecc/service/block/impl/BlockHandlerImpl$BlockVisitor.class
 com/ecc/web/ContractApi.class
 com/ecc/config/SpringConfig.class
@@ -36,12 +39,13 @@ com/ecc/web/GlobalExceptionHandler.class
 com/ecc/service/block/BlockHandler.class
 com/ecc/service/contract/impl/ContractHandlerImpl.class
 com/ecc/service/exceptions/KeyException.class
+com/ecc/config/RabbitMqConfig.class
 com/ecc/service/peer/PeerService.class
 com/ecc/util/shard/ShardUtil$LocateFileVisitor.class
 com/ecc/service/block/impl/MerkleTreeHandlerImpl.class
 com/ecc/service/block/MerkleTreeHandler.class
 com/ecc/web/api/UserServiceApi.class
-com/ecc/web/BlockApi.class
 com/ecc/service/block/impl/BlockHandlerImpl$1.class
 com/ecc/service/contract/ContractHandler.class
+com/ecc/web/TicketApi.class
 com/ecc/service/exceptions/StateException.class

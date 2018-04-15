@@ -1,7 +1,9 @@
 package com.ecc.web;
 
 import com.ecc.domain.transaction.impl.FileTransaction;
+import com.ecc.domain.transaction.impl.TicketTransaction;
 import com.ecc.service.FileService;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,16 +28,43 @@ public class FileServiceApi {
     public void receiveFileAndTransaction(@RequestParam("transaction") String transaction,
                                           @RequestParam("fileName") String fileName,
                                           @RequestPart("file") MultipartFile file) throws Exception {
-        fileService.receiveFileAndTransaction(transaction, fileName, file);
+        FileTransaction transaction0 = new Gson().fromJson(transaction, FileTransaction.class);
+        fileService.receiveFileAndTransaction(transaction0, fileName, file);
     }
 
-    @GetMapping("shardhash")
-    public String getShardHash(@RequestParam("shardFileName") String shardFileName) {
-        return fileService.getShardHashByShardFileName(shardFileName);
+    @GetMapping("shard_hash")
+    public String getShardHash(@RequestParam("hashedShardName") String hashedFileName) {
+        return fileService.getShardHash(hashedFileName);
     }
 
-    @GetMapping("transactionlist")
-    public List<FileTransaction> getFileTransactions(@RequestParam("hashedFileName") String hashedFileName){
-        return fileService.getFileTransactions(hashedFileName);
+    @GetMapping("transactions")
+    public List<FileTransaction> getFileTransactions(@RequestParam("fileId") String fileId) {
+        return fileService.getFileTransactionsByFileId(fileId);
+    }
+
+    @GetMapping("transactions/{owner}")
+    public List<String> getFileIds(@PathVariable("owner") String owner) {
+        return fileService.getFileIdsByOwner(owner);
+    }
+
+    @PostMapping("ticket/revoke")
+    public void revokeTicket(@RequestParam("ticketId") String ticketId,
+                             @RequestParam("timestamp") String timestamp,
+                             @RequestParam("ip") String ip,
+                             @RequestParam("port") Integer port) {
+        fileService.addTicketRevoke(ticketId, timestamp, ip, port);
+    }
+
+    @PostMapping("ticket/create")
+    public void createTicket(@RequestBody TicketTransaction transaction) {
+        fileService.addTicket(transaction);
+    }
+
+    @GetMapping("ticket/revoke")
+    public String isTicketRevoked(@RequestParam("ticketId") String ticketId) {
+        if (fileService.getTicketRevokeInfo(ticketId)) {
+            return "false";
+        }
+        return "true";
     }
 }

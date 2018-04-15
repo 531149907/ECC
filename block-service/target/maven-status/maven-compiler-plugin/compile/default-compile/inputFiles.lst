@@ -4,9 +4,11 @@
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/exceptions/BlockException.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/BlockServiceApplication.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/config/SpringConfig.java
+/Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/VerifiedContractCollector.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/web/BlockServiceApi.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/exceptions/StateException.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/exceptions/ContractException.java
+/Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/ContractCollector.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/exceptions/StorageException.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/web/api/PeerApi.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java

@@ -3,10 +3,11 @@
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/util/crypto/AesUtil.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/exceptions/ContractException.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/exceptions/KeyException.java
+/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/TicketApi.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/exceptions/ContractException.java
-/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/BlockApi.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/block/MerkleTreeHandler.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/block/impl/MerkleTreeHandlerImpl.java
+/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/api/BlockServiceApi.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/block/BlockHandler.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/contract/ContractService.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/api/ContractServiceApi.java
@@ -18,6 +19,7 @@
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/GlobalExceptionHandler.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/PeerApplication.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java
+/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/exceptions/TicketException.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/constants/ApplicationConstants.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/exceptions/StateException.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/transfer/impl/TransferHandlerImpl.java
@@ -29,8 +31,10 @@
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/exceptions/CryptoExcetion.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/PeerApi.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/transaction/impl/TransactionHandlerImpl.java
+/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/transaction/TransactionService.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/FileApi.java
+/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/config/RabbitMqConfig.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/config/SpringConfig.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/exceptions/StorageException.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/peer/PeerService.java

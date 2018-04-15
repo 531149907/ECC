@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient("user-service")
 public interface UserServiceApi {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "peer", method = RequestMethod.GET)
     Peer getPeer(@RequestParam(value = "email", required = false) String email,
                  @RequestParam(value = "ip", required = false) String ip);
 }

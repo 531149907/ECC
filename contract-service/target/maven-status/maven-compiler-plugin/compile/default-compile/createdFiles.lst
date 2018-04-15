@@ -12,8 +12,8 @@ com/ecc/web/api/BlockServiceApi.class
 com/ecc/web/ContractServiceApi.class
 com/ecc/dao/ContractMapper.class
 com/ecc/service/exceptions/RestException.class
-com/ecc/service/contract/ContractService.class
 com/ecc/web/exceptions/UserException.class
 com/ecc/web/api/UserServiceApi.class
+com/ecc/service/ContractService.class
 com/ecc/service/contract/ContractHandler.class
 com/ecc/constants/ApplicationConstants.class

@@ -23,14 +23,6 @@ public class ContractServiceApi {
 
     @Autowired
     ContractService contractService;
-    @Autowired
-    UserServiceApi userServiceApi;
-    @Autowired
-    FileServiceApi fileServiceApi;
-    @Autowired
-    RestTemplate restTemplate;
-    @Autowired
-    BlockServiceApi blockServiceApi;
 
     @PostMapping("verify")
     public void verifyReceiverSignedContract(@RequestBody Contract contract) throws ContractException {

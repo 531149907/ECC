@@ -13,9 +13,9 @@ public class UserServiceApi {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public Peer getPeer(@RequestParam("email") String email,
-                        @RequestParam("ip") String ip) {
+    @RequestMapping(value = "peer", method = RequestMethod.GET)
+    public Peer getPeer(@RequestParam(value = "email") String email,
+                 @RequestParam(value = "ip") String ip){
         return userService.getPeer(email, ip);
     }
 

@@ -5,5 +5,5 @@
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/dao/PeerMapper.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/UserServiceApplication.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/web/UserServiceApi.java
+/Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/config/database/MysqlConfig.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/web/exceptions/UserException.java
-/Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/config/database/MySqlConfig.java

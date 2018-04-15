@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Component
-@FeignClient("contract-service")
+@FeignClient("CONTRACT-SERVICE")
 public interface ContractServiceApi {
 
     @RequestMapping(value = "upload", method = RequestMethod.POST)

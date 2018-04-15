@@ -14,13 +14,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FileTransaction extends Transaction implements Serializable, Hashable {
-    private String id;
+    private Integer id;
+    private String transactionId;
+    private String fileId;
     private String originalFileName;
     private String hashedFileName;
     private String fileHash;
     private String shardId;
-    private String shardFileName; //hash(hashedFileName + owner)
-    private String shardOriginalName;
+    private String originalShardName;
+    private String hashedShardName;
     private String shardHash;
     private String owner;
     private String holder;
@@ -34,12 +36,14 @@ public class FileTransaction extends Transaction implements Serializable, Hashab
     public String getRawMessage() {
         StringBuilder builder = new StringBuilder();
         builder.append(id)
+                .append(transactionId)
+                .append(fileId)
                 .append(originalFileName)
                 .append(hashedFileName)
                 .append(fileHash)
                 .append(shardId)
-                .append(shardFileName)
-                .append(shardOriginalName)
+                .append(originalShardName)
+                .append(hashedShardName)
                 .append(shardHash)
                 .append(owner)
                 .append(holder)
@@ -48,7 +52,7 @@ public class FileTransaction extends Transaction implements Serializable, Hashab
         return builder.toString();
     }
 
-    public void show() {
+    /*public void show() {
         System.out.println("========================================================================================");
         System.out.println("TRANSACTION STRUCTURE - [ FILE_TRANSACTION ]");
         System.out.println("----------------------------------------------------------------------------------------");
@@ -65,5 +69,5 @@ public class FileTransaction extends Transaction implements Serializable, Hashab
         System.out.println("        File level:\t" + OutputFormatter.format(fileLevel, 23));
         System.out.println("========================================================================================");
         System.out.println("\n\n");
-    }
+    }*/
 }

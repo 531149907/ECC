@@ -45,6 +45,15 @@ public class RestTemplate {
         return restTemplate.exchange(builder.toString(), HttpMethod.GET, null, clazz, new HashMap<>()).getBody();
     }
 
+    public <T> T post(String url, HashMap<String, Object> params, Class<T> clazz, boolean hasBody){
+        if (params == null) {
+            params = new HashMap<>();
+        }
+        url = url(url);
+
+        return restTemplate.postForEntity(url,params.get("contract"),clazz,new HashMap<>()).getBody();
+    }
+
     public <T> T post(String url, HashMap<String, Object> params, Class<T> clazz) {
         if (params == null) {
             params = new HashMap<>();

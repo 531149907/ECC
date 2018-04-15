@@ -3,6 +3,7 @@ package com.ecc.service.transfer;
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.transaction.PermissionType;
+import com.ecc.domain.transaction.TransactionType;
 import com.ecc.domain.transaction.impl.FileTransaction;
 import com.ecc.domain.transaction.impl.TicketTransaction;
 import com.ecc.service.RestTemplate;
@@ -25,7 +26,9 @@ import com.ecc.web.api.UserServiceApi;
 import com.ecc.web.exceptions.FileException;
 import com.ecc.web.exceptions.TicketException;
 import com.google.gson.Gson;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -66,6 +69,8 @@ public class TransferService {
     FileServiceUploadApi fileServiceUploadApi;
     @Autowired
     ContractServiceApi contractServiceApi;
+    @Autowired
+    TaskExecutor taskExecutor;
 
     public void encryptFile(String path, String password) throws Exception {
         TransferHandler transferHandler = TransferHandlerImpl.getHandler();
@@ -88,27 +93,29 @@ public class TransferService {
 
         PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getPeer().getEmail()).getPrivateKey();
 
+        String var0 = UUID.randomUUID().toString();
         for (int i = 0; i < shardPaths.size(); i++) {
             String transactionId = UUID.randomUUID().toString();
             String contractId = UUID.randomUUID().toString();
             FileTransaction transaction = FileTransaction.builder()
-                    .id(transactionId)
+                    .transactionId(transactionId)
+                    .fileId(HashUtil.hash(Peer.getPeer().getEmail() + var0))
                     .originalFileName(uploadFile.getName())
-                    .hashedFileName(HashUtil.hash(uploadFile.getName()))
+                    .hashedFileName(HashUtil.hash(uploadFile.getName() + var0))
                     .fileHash(HashUtil.hash(Paths.get(filePath)))
                     .shardId(String.valueOf(i))
-                    .shardOriginalName(shardPaths.get(i).getFileName().toString())
+                    .originalShardName(shardPaths.get(i).getFileName().toString())
+                    .hashedShardName(HashUtil.hash(shardPaths.get(i).getFileName().toString() + var0))
                     .shardHash(HashUtil.hash(shardPaths.get(i)))
                     .owner(Peer.getPeer().getEmail())
                     .holder(peerList.get(i))
                     .timestamp(DateUtil.getDate())
                     .fileLevel("LEVEL_A")
                     .build();
-            transaction.setShardFileName(HashUtil.hash(transaction.getHashedFileName() + transaction.getOwner()));
             Contract contract = Contract.builder()
                     .id(contractId)
                     .channel("default_queue")
-                    .transactionType("upload")
+                    .transactionType(TransactionType.FILE)
                     .transactionId(transactionId)
                     .transactionHash(transaction.hash())
                     .timestamp(DateUtil.getDate())
@@ -116,7 +123,6 @@ public class TransferService {
             contractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
             sendFileAndTransaction(shardPaths.get(i), transaction);
             sendContract(contract);
-            Thread.sleep(1000);
         }
 
         transferHandler.deleteTempShards();
@@ -134,9 +140,13 @@ public class TransferService {
             throw new TicketException("Ticket usage denied! Not signed for you to view the file!", 500);
         }
 
+        if (fileServiceApi.isTicketRevoked(transaction.getId()).equals("true")) {
+            throw new TicketException("Ticket was revoked!", 500);
+        }
+
         switch (transaction.getPermissions()) {
             case PermissionType.DOWNLOAD:
-                downloadFile(transaction.getFileId());
+                downloadFile(transaction);
                 break;
             case PermissionType.SIGN:
                 break;
@@ -184,32 +194,36 @@ public class TransferService {
     }
 
     private void sendFileAndTransaction(Path filePath, FileTransaction transaction) {
-        //todo: 传输 transaction 和 file 给 file service
         try {
             InputStream inputStream = new FileInputStream(filePath.toFile());
             MultipartFile file = new MockMultipartFile("file", inputStream);
             fileServiceUploadApi.receiveFileAndTransaction(new Gson().toJson(transaction),
-                    transaction.getShardFileName(), file);
+                    transaction.getHashedShardName(), file);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void sendContract(Contract contract) {
-        contractServiceApi.uploadSenderSignedContract(contract);
+        taskExecutor.execute(() -> {
+            contractServiceApi.uploadSenderSignedContract(contract);
+        });
     }
 
-    private void downloadFile(String fileId) throws Exception {
-        List<FileTransaction> fileTransactions = fileServiceApi.getFileTransactions(fileId);
+    private void downloadFile(TicketTransaction ticketTransaction) throws Exception {
+        List<FileTransaction> fileTransactions = fileServiceApi.getFileTransactions(ticketTransaction.getFileId());
         for (FileTransaction transaction : fileTransactions) {
             Peer holderPeer = userServiceApi.getPeer(transaction.getHolder(), "");
             String holderIp = holderPeer.getIp();
             int holderPort = holderPeer.getPort();
             HashMap<String, Object> params = new HashMap<>();
-            params.put("fileName", transaction.getShardOriginalName());
-            restTemplate.download(holderIp + ":" + holderPort + "/push", params, PATH_DOWNLOAD);
+            params.put("fileName", transaction.getOriginalShardName());
+            restTemplate.download(holderIp + ":" + holderPort + "/file/push", params, PATH_DOWNLOAD);
         }
-        //todo: combine shards
+
+        //todo: send revoke ticket
+        fileServiceApi.revokeTicket(ticketTransaction.getId(),
+                DateUtil.getDate(), Peer.getPeer().getIp(), Peer.getPeer().getPort());
         TransferHandler handler = TransferHandlerImpl.getHandler();
         List<Path> downloadedFilePath = handler.combineFiles(PATH_DOWNLOAD + fileTransactions.get(0).getOriginalFileName());
         if (downloadedFilePath.isEmpty()) {

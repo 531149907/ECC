@@ -7,11 +7,9 @@ import com.ecc.service.transfer.TransferService;
 import com.ecc.web.api.ContractServiceApi;
 import com.ecc.web.api.FileServiceApi;
 import com.ecc.web.exceptions.ContractException;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.KeyException;
 
@@ -31,12 +29,16 @@ public class ContractApi {
     ContractServiceApi contractServiceApi;
 
     @PostMapping("sign")
-    public void receiverSign(@RequestBody Contract contract) throws ContractException, KeyException {
+    public void receiverSign(@RequestParam("contract") Contract contract) throws ContractException, KeyException {
+        System.out.println("init");
+        contract.show();
         contractService.receiverSignContract(contract);
     }
 
     @PostMapping("verify")
-    public void verifyContract(@RequestBody Contract contract) throws KeyException, ContractException {
+    public void verifyContract(@RequestParam("contract") Contract contract) throws KeyException, ContractException {
+        System.out.println("init");
+        contract.show();
         contractService.verifyContract(contract);
     }
 }

@@ -3,8 +3,8 @@ package com.ecc.service;
 import com.ecc.dao.FileMapper;
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.transaction.impl.FileTransaction;
+import com.ecc.domain.transaction.impl.TicketTransaction;
 import com.ecc.web.api.UserServiceApi;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.task.TaskExecutor;
@@ -30,14 +30,13 @@ public class FileService {
     TaskExecutor taskExecutor;
 
     public FileTransaction getTransaction(String transactionId, String transactionType) {
-        return fileMapper.getTransactionById(transactionId);
+        return fileMapper.getFileTransactionById(transactionId);
     }
 
-    public void receiveFileAndTransaction(String transaction0, String fileName, MultipartFile file) throws Exception {
+    public void receiveFileAndTransaction(FileTransaction transaction, String fileName, MultipartFile file) throws Exception {
         Path tempFilePath = Paths.get("./file-service/src/main/temp/" + fileName);
         file.transferTo(tempFilePath.toFile());
 
-        FileTransaction transaction = new Gson().fromJson(transaction0, FileTransaction.class);
         fileMapper.addFileTransaction(transaction);
 
         String holderEmail = transaction.getHolder();
@@ -45,24 +44,40 @@ public class FileService {
         String holderIP = peer.getIp();
         Integer holderPort = peer.getPort();
 
-        taskExecutor.execute(() -> new Thread(() -> {
+        taskExecutor.execute(() -> {
             HashMap<String, Object> params = new HashMap<>();
             params.put("fileName", fileName);
             params.put("file", new FileSystemResource(tempFilePath.toFile()));
-            restTemplate.post(holderIP + ":" + holderPort + "/store", params, null);
+            restTemplate.post(holderIP + ":" + holderPort + "/file/store", params, null);
             try {
                 Files.deleteIfExists(tempFilePath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }).start());
+        });
     }
 
-    public String getShardHashByShardFileName(String shardName) {
-        return fileMapper.getShardHashByShardFileName(shardName);
+    public void addTicket(TicketTransaction transaction) {
+        fileMapper.addTicketTransaction(transaction);
     }
 
-    public List<FileTransaction> getFileTransactions(String hashedFileName) {
-        return fileMapper.getFileTransactions(hashedFileName);
+    public void addTicketRevoke(String ticketId, String timestamp, String ip, Integer port) {
+        fileMapper.addTicketRevoke(ticketId, timestamp, ip, port);
+    }
+
+    public List<FileTransaction> getFileTransactionsByFileId(String fileId) {
+        return fileMapper.getFileTransactionsByFileId(fileId);
+    }
+
+    public List<String> getFileIdsByOwner(String owner) {
+        return fileMapper.getOwnersFileIds(owner);
+    }
+
+    public String getShardHash(String hashedShardName) {
+        return fileMapper.getShardHashByHashedShardName(hashedShardName);
+    }
+
+    public boolean getTicketRevokeInfo(String ticketId) {
+        return fileMapper.getTicketRevokeInfo(ticketId) == null;
     }
 }

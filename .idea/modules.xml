@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/orderer-service/orderer-service.iml" filepath="$PROJECT_DIR$/orderer-service/orderer-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/peer/peer.iml" filepath="$PROJECT_DIR$/peer/peer.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" filepath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,5 @@
-com/ecc/config/database/MySqlConfig.class
 com/ecc/web/UserServiceApi.class
+com/ecc/config/database/MysqlConfig.class
 com/ecc/web/exceptions/UserException.class
 com/ecc/config/SpringConfig.class
 com/ecc/service/UserService.class

@@ -6,13 +6,13 @@
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/domain/transaction/Transaction.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/converter/Base64Util.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/domain/security/KeyStorage.java
+/Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/domain/transaction/PermissionType.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/domain/peer/Peer.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/constants/ApplicationConstants.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/converter/DateUtil.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/crypto/HashUtil.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/converter/OutputFormatter.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/crypto/AesUtil.java
-/Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/spring/ApplicationContextUtil.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/domain/transaction/TransactionType.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/util/converter/BytesUtil.java
 /Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/domain/block/Block.java

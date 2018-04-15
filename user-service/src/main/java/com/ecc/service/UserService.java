@@ -20,10 +20,11 @@ public class UserService {
     PeerMapper peerMapper;
 
     public Peer getPeer(String email, String ip) {
-        if (email == null || email.equals("")) {
-            return peerMapper.getPeerByIp(ip);
-        } else if (ip == null || ip.equals("")) {
+        if (!email.equals("")) {
             return peerMapper.getPeerByEmail(email);
+        }
+        if (!ip.equals("")) {
+            return peerMapper.getPeerByIp(ip);
         }
         return null;
     }
@@ -37,6 +38,7 @@ public class UserService {
     }
 
     public void login(Peer peer) {
+        peerMapper.deleteVerification(peer.getEmail());
         peerMapper.updatePeer(peer);
     }
 
@@ -72,8 +74,6 @@ public class UserService {
             peerMapper.deleteVerification(email);
             return peerMapper.getPeerByEmail(email);
         }
-
-        peerMapper.deleteVerification(email);
         throw new UserException("Random value verify failed!", 500);
     }
 

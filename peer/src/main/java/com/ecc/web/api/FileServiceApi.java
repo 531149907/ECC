@@ -1,11 +1,10 @@
 package com.ecc.web.api;
 
 import com.ecc.domain.transaction.impl.FileTransaction;
+import com.ecc.domain.transaction.impl.TicketTransaction;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,14 +12,28 @@ import java.util.List;
 @FeignClient(value = "file-service")
 public interface FileServiceApi {
 
-    @RequestMapping(value = "transaction", method = RequestMethod.GET)
+    @GetMapping("transaction")
     FileTransaction getTransaction(@RequestParam("transactionId") String transactionId,
                                    @RequestParam("transactionType") String transactionType);
 
+    @GetMapping("shard_hash")
+    String getShardHash(@RequestParam("hashedShardName") String hashedFileName);
 
-    @RequestMapping(value = "shardhash", method = RequestMethod.GET)
-    String getShardHash(@RequestParam("shardFileName") String shardFileName);
+    @GetMapping("transactions")
+    List<FileTransaction> getFileTransactions(@RequestParam("fileId") String fileId);
 
-    @RequestMapping(value = "transactionlist", method = RequestMethod.GET)
-    List<FileTransaction> getFileTransactions(@RequestParam("hashedFileName") String hashedFileName);
+    @GetMapping("transactions/{owner}")
+    List<String> getFileIds(@PathVariable("owner") String owner);
+
+    @PostMapping("ticket/revoke")
+    void revokeTicket(@RequestParam("ticketId") String ticketId,
+                      @RequestParam("timestamp") String timestamp,
+                      @RequestParam("ip") String ip,
+                      @RequestParam("port") Integer port);
+
+    @PostMapping("ticket/create")
+    void createTicket(@RequestBody TicketTransaction transaction);
+
+    @GetMapping("ticket/revoke")
+    String isTicketRevoked(@RequestParam("ticketId") String ticketId);
 }

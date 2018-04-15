@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 public class ContractCollector {
-    @Autowired
+    /*@Autowired
     PeerApi peerApi;
 
     private static HashMap<String, Contract> contractPool = new HashMap<>();
@@ -60,5 +60,5 @@ public class ContractCollector {
                 }
             }
         }
-    }
+    }*/
 }

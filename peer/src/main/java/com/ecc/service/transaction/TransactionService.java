@@ -1,74 +1,69 @@
 package com.ecc.service.transaction;
 
 import com.ecc.domain.contract.Contract;
-import com.ecc.domain.transaction.Transaction;
-import com.ecc.service.RestTemplate;
-import com.ecc.service.block.BlockService;
-import com.ecc.service.contract.ContractService;
-import com.ecc.service.peer.PeerService;
-import com.ecc.service.transfer.TransferService;
+import com.ecc.domain.peer.Peer;
+import com.ecc.domain.transaction.TransactionType;
+import com.ecc.domain.transaction.impl.FileTransaction;
+import com.ecc.domain.transaction.impl.TicketTransaction;
+import com.ecc.service.contract.ContractHandler;
+import com.ecc.service.contract.impl.ContractHandlerImpl;
+import com.ecc.util.converter.DateUtil;
+import com.ecc.util.crypto.RsaUtil;
+import com.ecc.web.api.ContractServiceApi;
+import com.ecc.web.api.FileServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.security.PrivateKey;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TransactionService {
     @Autowired
-    RestTemplate restTemplate;
+    FileServiceApi fileServiceApi;
     @Autowired
-    BlockService blockService;
-    @Autowired
-    ContractService contractService;
-    @Autowired
-    TransferService transferService;
-    @Autowired
-    PeerService peerService;
+    ContractServiceApi contractServiceApi;
 
-    /*public void signTicket(String fileId, String signFor, String permissions) {
-        KeyStorage keyStorage = RsaUtil.loadKeyPair(Peer.getPeer().getEmail());
+    public void signTicket(String fileId, String signFor, String permissions) throws Exception {
         ContractHandler contractHandler = ContractHandlerImpl.getHandler();
 
-        //todo: check if fileId belongs to signer
-        HashMap<String, Object> params = new HashMap<>();
-        params.put("file_id", fileId);
-        params.put("signer", Peer.getPeer().getEmail());
-        Report report = restTemplate.get("", params, null);
-
-        if (report.getCode() == 200) {
-            String transactionId = UUID.randomUUID().toString();
-            TicketTransaction ticketTransaction = TicketTransaction.builder()
-                    .id(transactionId)
-                    .fileId(fileId)
-                    .signFor(signFor)
-                    .timestamp(DateUtil.getDate())
-                    .permissions(permissions)
-                    .signer(Peer.getPeer().getEmail())
-                    .build();
-
-            PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getPeer().getEmail()).getPrivateKey();
-
-            Contract contract = Contract.builder()
-                    .id(UUID.randomUUID().toString())
-                    .channel("default_queue")
-                    .transactionType(TransactionType.TICKET)
-                    .transactionId(transactionId)
-                    .timestamp(DateUtil.getDate())
-                    .build();
-            contractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
-
-            sendTransaction(ticketTransaction);
-            sendContract(contract);
+        //check if fileId belongs to signer
+        List<FileTransaction> fileTransactions = fileServiceApi.getFileTransactions(fileId);
+        if (!fileTransactions.get(0).getOwner().equals(Peer.getPeer().getEmail())) {
+            throw new Exception("File not belongs to you! Cannot sign ticket!");
         }
 
-        return null;
-    }*/
+        String transactionId = UUID.randomUUID().toString();
+        TicketTransaction ticketTransaction = TicketTransaction.builder()
+                .id(transactionId)
+                .fileId(fileId)
+                .signFor(signFor)
+                .timestamp(DateUtil.getDate())
+                .permissions(permissions)
+                .signer(Peer.getPeer().getEmail())
+                .build();
 
-    private void sendContract(Contract contract) {
-        //todo: 传输 contract 给 contract service
-        restTemplate.post("", null, null);
+        PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getPeer().getEmail()).getPrivateKey();
+
+        Contract contract = Contract.builder()
+                .id(UUID.randomUUID().toString())
+                .channel("default_queue")
+                .transactionType(TransactionType.TICKET)
+                .transactionId(transactionId)
+                .timestamp(DateUtil.getDate())
+                .build();
+        contractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
+
+        sendTransaction(ticketTransaction);
+        sendContract(contract);
     }
 
-    private String sendTransaction(Transaction transaction) {
-        //todo: 传输 transaction 给 file service
-        return restTemplate.post("", null, String.class);
+    private void sendContract(Contract contract) {
+        contractServiceApi.uploadSenderSignedContract(contract);
+    }
+
+    private void sendTransaction(TicketTransaction transaction) {
+        fileServiceApi.createTicket(transaction);
     }
 }

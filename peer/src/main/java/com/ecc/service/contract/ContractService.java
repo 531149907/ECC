@@ -6,13 +6,13 @@ import com.ecc.domain.transaction.impl.FileTransaction;
 import com.ecc.service.block.BlockService;
 import com.ecc.service.contract.impl.ContractHandlerImpl;
 import com.ecc.util.crypto.RsaUtil;
-import com.ecc.web.BlockApi;
 import com.ecc.web.api.BlockServiceApi;
 import com.ecc.web.api.ContractServiceApi;
 import com.ecc.web.api.FileServiceApi;
 import com.ecc.web.api.UserServiceApi;
 import com.ecc.web.exceptions.ContractException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 
 import java.security.KeyException;
@@ -30,11 +30,16 @@ public class ContractService {
     UserServiceApi userServiceApi;
     @Autowired
     BlockServiceApi blockServiceApi;
+    @Autowired
+    TaskExecutor taskExecutor;
 
     public void receiverSignContract(Contract contract) throws ContractException, KeyException {
         ContractHandler contractHandler = ContractHandlerImpl.getHandler();
         FileTransaction transaction = fileServiceApi.getTransaction(contract.getTransactionId(), contract.getTransactionType());
-
+        if (null == fileServiceApi.getTransaction(contract.getTransactionId(), contract.getTransactionType())) {
+            System.out.println(contract.getTransactionId());
+        }
+        System.out.println("1");
         if (!transaction.hash().equals(contract.getTransactionHash())) {
             throw new ContractException("Transaction.hash != contract.transaction.hash");
         }
@@ -42,10 +47,13 @@ public class ContractService {
         String publicKey = userServiceApi.getPeer(contract.getSenderSign(), "").getPublicKey();
         PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getPeer().getEmail()).getPrivateKey();
 
+        System.out.println("2");
         if (contractHandler.verify(Contract.VERIFY_SENDER_SIGN, contract,
                 RsaUtil.getPublicKeyFromString(publicKey))) {
             contractHandler.sign(Contract.RECEIVER_SIGN, contract, peerPrivateKey);
+            System.out.println("3");
             contractServiceApi.uploadReceiverSignedContract(contract);
+            System.out.println("4");
             blockService.addContractToBlock(contract);
             return;
         }
@@ -77,7 +85,9 @@ public class ContractService {
         String message = contract.getRawMessage() + contract.getSenderSign() + contract.getReceiverSign();
         contract.setVerifierSign(RsaUtil.sign(message, RsaUtil.loadKeyPair(Peer.getPeer().getEmail()).getPrivateKey()));
 
-        //todo: 发回给block-service
-        blockServiceApi.receiveVerifiedContract(contract);
+        taskExecutor.execute(() -> {
+            //todo: 发回给block-service
+            blockServiceApi.receiveVerifiedContract(contract);
+        });
     }
 }

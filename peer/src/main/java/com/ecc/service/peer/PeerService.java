@@ -40,7 +40,7 @@ public class PeerService {
     @Autowired
     UserServiceApi userServiceApi;
 
-    public Peer register(String email, String channel, String level, String dir) throws UserException, KeyException {
+    public Peer register(String email, String channel, String level, String dir) throws Exception {
         RsaUtil.generateKeyPair(email);
         KeyStorage keyStorage = RsaUtil.loadKeyPair(email);
 
@@ -54,17 +54,24 @@ public class PeerService {
         Peer.getPeer().setRegDate(DateUtil.getDate());
 
         Peer peer = userServiceApi.register(Peer.getPeer());
+
         if (peer != null) {
-            Peer.setPeer(peer);
+            Peer.getPeer().setId(peer.getId());
+            Peer.getPeer().setEmail(peer.getEmail());
+            Peer.getPeer().setChannel(peer.getChannel());
+            Peer.getPeer().setLevel(peer.getLevel());
+            Peer.getPeer().setIp(NetworkUtil.getLocalAddress());
+            Peer.getPeer().setPort(29626);
+            Peer.getPeer().setDir(dir);
+            Peer.getPeer().setPublicKey(peer.getPublicKey());
+            Peer.getPeer().setRegDate(peer.getRegDate());
             return peer;
         }
-        throw new UserException("Email already been registered!");
+        throw new Exception("Email already been registered!");
     }
 
-    public Peer login(String email, String dir) throws UserException, KeyException {
+    public Peer login(String email, String dir) throws Exception {
         if (RsaUtil.loadKeyPair(email).getPrivateKey() != null) {
-
-            //todo: get value from server
             HashMap<String, String> params = userServiceApi.getRandomValue(email);
             String aesKey = RsaUtil.decrypt(params.get("encryptedAesKey"), RsaUtil.loadKeyPair(email).getPrivateKey());
             String aesDecryptValue = AesUtil.decrypt(aesKey, params.get("encryptedData"));
@@ -76,19 +83,25 @@ public class PeerService {
                 verifyValue = AesUtil.encrypt(aesKey, verifyValue);
 
                 //todo: SENT TO SERVER to receive feedback
-                Peer peer = userServiceApi.returnVerifiedPeer(verifyValue, email);
+                Peer newPeer = userServiceApi.returnVerifiedPeer(verifyValue, email);
+                Peer.getPeer().setId(newPeer.getId());
+                Peer.getPeer().setEmail(newPeer.getEmail());
+                Peer.getPeer().setChannel(newPeer.getChannel());
+                Peer.getPeer().setLevel(newPeer.getLevel());
                 Peer.getPeer().setIp(NetworkUtil.getLocalAddress());
                 Peer.getPeer().setPort(29626);
                 Peer.getPeer().setDir(dir);
-                Peer.setPeer(peer);
+                Peer.getPeer().setPublicKey(newPeer.getPublicKey());
+                Peer.getPeer().setRegDate(newPeer.getRegDate());
+                Peer.getPeer().setSecretKey(aesKey);
 
                 //todo: update peer current statues
                 userServiceApi.login(Peer.getPeer());
-                return peer;
+                return Peer.getPeer();
             }
-            throw new UserException("Random value verify failed!");
+            throw new Exception("Random value verify failed!");
         }
-        throw new UserException("Cannot locate privateKey file!");
+        throw new Exception("Cannot locate privateKey file!");
     }
 
     public List<String> getPeerList(int maxPeers) {

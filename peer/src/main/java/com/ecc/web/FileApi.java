@@ -1,10 +1,7 @@
 package com.ecc.web;
 
-import com.ecc.domain.transaction.impl.TicketTransaction;
 import com.ecc.service.transfer.TransferService;
-import com.ecc.web.exceptions.CryptoExcetion;
 import com.ecc.web.exceptions.FileException;
-import com.ecc.web.exceptions.TicketException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +19,7 @@ public class FileApi {
 
     @PostMapping("upload")
     public void upload(@RequestParam("file") String file,
-                       @RequestParam("password") String password) throws Exception,CryptoExcetion {
+                       @RequestParam("password") String password) throws Exception {
         transferService.encryptFile(file, password);
         String filePath = PATH_TEMP + Paths.get(file).getFileName();
         transferService.uploadFile(filePath);

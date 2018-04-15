@@ -27,28 +27,17 @@ public class Peer implements Serializable {
     private String channel;
 
     @JsonIgnore
+    private String secretKey;
+    @JsonIgnore
     private static Peer peer;
 
-    private Peer() {
-    }
+    private Peer() {}
 
     public static Peer getPeer() {
         if (peer == null) {
             peer = new Peer();
         }
         return peer;
-    }
-
-    public static void setPeer(Peer newPeer) {
-        peer.id = newPeer.getId();
-        peer.email = newPeer.getEmail();
-        peer.publicKey = newPeer.getPublicKey();
-        peer.regDate = newPeer.getRegDate();
-        peer.ip = newPeer.getIp();
-        peer.port = newPeer.getPort();
-        peer.dir = newPeer.getDir();
-        peer.level = newPeer.getLevel();
-        peer.channel = newPeer.getChannel();
     }
 
     public PublicKey getPublicKey(String publicKey) {
@@ -68,6 +57,7 @@ public class Peer implements Serializable {
         System.out.println("       Dir:\t" + OutputFormatter.format(dir, 15));
         System.out.println("     Level:\t" + OutputFormatter.format(level, 15));
         System.out.println("   Channel:\t" + OutputFormatter.format(channel, 15));
+        System.out.println("    Secret:\t" + OutputFormatter.format(secretKey, 15));
         System.out.println("==============================================================================");
         System.out.println("\n\n");
     }
