@@ -1,0 +1,4 @@
+com/ecc/web/api/UserServiceApi.class
+com/ecc/ZuulGatewayApplication.class
+com/ecc/filters/AuthenticationFilter.class
+com/ecc/filters/ExceptionFilter.class

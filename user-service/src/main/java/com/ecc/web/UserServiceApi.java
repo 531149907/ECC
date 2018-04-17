@@ -1,42 +1,75 @@
 package com.ecc.web;
 
+import com.ecc.dao.PeerMapper;
+import com.ecc.dao.VerificationMapper;
 import com.ecc.domain.peer.Peer;
-import com.ecc.service.UserService;
-import com.ecc.web.exceptions.UserException;
+import com.ecc.domain.peer.Verification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class UserServiceApi {
+
     @Autowired
-    UserService userService;
+    PeerMapper peerMapper;
+    @Autowired
+    VerificationMapper verificationMapper;
 
-    @RequestMapping(value = "peer", method = RequestMethod.GET)
-    public Peer getPeer(@RequestParam(value = "email") String email,
-                 @RequestParam(value = "ip") String ip){
-        return userService.getPeer(email, ip);
+    @PutMapping("peer")
+    public void addPeer(@RequestBody Peer peer) {
+        peerMapper.addPeer(peer);
     }
 
-    @PostMapping("register")
-    public Peer register(@RequestBody Peer peer) throws UserException {
-        return userService.register(peer);
+    @GetMapping("peer/email")
+    public Peer getPeerByEmail(@RequestParam("email") String email) {
+        return peerMapper.getPeerByEmail(email);
     }
 
-    @PostMapping("login")
-    public void login(@RequestBody Peer peer) {
-        userService.login(peer);
+    @GetMapping("peer/ip")
+    public Peer getPeerByIp(@RequestParam("ip") String ip) {
+        return peerMapper.getPeerByIp(ip);
+    }
+
+    @GetMapping("peer")
+    public List<Peer> getUpPeers() {
+        return peerMapper.getUpPeers();
+    }
+
+    @GetMapping("token")
+    public boolean checkIfTokenExists(@RequestParam("token") String token) {
+        return peerMapper.getTokenExists(token) == 1;
+    }
+
+    @PostMapping("token")
+    public void updateToken(@RequestParam("email") String email,
+                            @RequestParam("token") String token) {
+        peerMapper.updateToken(email, token);
+    }
+
+    @PostMapping("peer")
+    public void updatePeer(@RequestBody Peer peer) {
+        peerMapper.updatePeer(peer);
+    }
+
+    @PutMapping("verify")
+    public void addVerification(@RequestBody Verification verification) {
+        verificationMapper.addVerification(verification);
     }
 
     @GetMapping("verify")
-    public HashMap<String, String> getRandomValue(@RequestParam("email") String email) throws UserException {
-        return userService.getRandomValue(email);
+    public Verification getVerification(@RequestParam("email") String email) {
+        return verificationMapper.getVerification(email);
+    }
+
+    @DeleteMapping("verify")
+    public void deleteVerification(@RequestParam("email") String email) {
+        verificationMapper.deleteVerification(email);
     }
 
     @PostMapping("verify")
-    public Peer returnVerifiedPeer(@RequestParam("verifyValue") String verifyValue,
-                                   @RequestParam("email") String email) throws UserException {
-        return userService.returnVerifiedPeer(verifyValue, email);
+    public void updateVerification(@RequestBody Verification verification) {
+        verificationMapper.updateVerification(verification);
     }
 }

@@ -5,7 +5,6 @@ import com.ecc.domain.contract.Contract;
 import com.ecc.service.RestTemplate;
 import com.ecc.service.block.BlockHandler;
 import com.ecc.service.contract.impl.ContractHandlerImpl;
-import com.ecc.service.exceptions.BlockException;
 import com.ecc.util.converter.BytesUtil;
 import com.ecc.util.converter.DateUtil;
 import lombok.Getter;
@@ -77,16 +76,16 @@ public class BlockHandlerImpl implements BlockHandler {
     }
 
     @Override
-    public void addContractToBlock(Contract contract) {
+    public void addContractToBlock(Contract contract) throws Exception {
         //todo: 获取 public key 要区分 sender, receiver
         PublicKey publicKey = null;
 
         if (!ContractHandlerImpl.getHandler().verify(Contract.VERIFY_SENDER_SIGN, contract, publicKey)) {
-            throw new BlockException("Cannot add contract to block! Because signature verification failed!");
+            throw new Exception("Cannot add contract to block! Because signature verification failed!");
         }
 
         if (!ContractHandlerImpl.getHandler().verify(Contract.VERIFY_RECEIVER_SIGN, contract, publicKey)) {
-            throw new BlockException("Cannot add contract to block! Because signature verification failed!");
+            throw new Exception("Cannot add contract to block! Because signature verification failed!");
         }
 
         try {
@@ -169,7 +168,7 @@ public class BlockHandlerImpl implements BlockHandler {
     }
 
     @Override
-    public boolean verifyAndImportBlock(Block newBlock) {
+    public boolean verifyAndImportBlock(Block newBlock) throws Exception {
         Block tempBlock = getTempBlock();
         if (!tempBlock.hash().equals(newBlock.getPrevHash())) {
             importMissingBlocks(newBlock.getIndex());
@@ -199,7 +198,7 @@ public class BlockHandlerImpl implements BlockHandler {
 
     @Override
     public void importMissingBlocks(int currentBlockIndex) {
-        RestTemplate connection = new RestTemplate();
+      /*  RestTemplate connection = new RestTemplate();
         HashMap<String, Object> blockHashMap = new HashMap<>();
 
         try {
@@ -226,12 +225,12 @@ public class BlockHandlerImpl implements BlockHandler {
             flushBlocks();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
-    public void importMissingContracts(Block newBlock) {
-        Block tempBlock = getTempBlock();
+    public void importMissingContracts(Block newBlock) throws Exception {
+/*        Block tempBlock = getTempBlock();
         RestTemplate restTemplate = new RestTemplate();
         List<String> missingIds = new ArrayList<>();
         HashMap<String, Contract> newBlockContracts = new HashMap<>();
@@ -285,7 +284,7 @@ public class BlockHandlerImpl implements BlockHandler {
             if (match / total > 0.75) {
                 addContractToBlock(newBlockContracts.get(contractIdKey));
             }
-        }
+        }*/
     }
 
     @Override

@@ -9,9 +9,9 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 
 public interface ContractHandler {
-    void sign(String signType, Contract contract, PrivateKey privateKey) throws KeyException;
+    void sign(String signType, Contract contract, PrivateKey privateKey) throws KeyException, Exception;
 
-    boolean verify(String verifyType, Contract contract, PublicKey publicKey);
+    boolean verify(String verifyType, Contract contract, PublicKey publicKey) throws Exception;
 
-    Contract extractContractFromBlock(String contractId, Block block);
+    Contract extractContractFromBlock(String contractId, Block block) throws Exception;
 }

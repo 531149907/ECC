@@ -3,11 +3,9 @@ package com.ecc.service.contract.impl;
 import com.ecc.domain.block.Block;
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.transaction.TransactionType;
-import com.ecc.service.exceptions.ContractException;
 import com.ecc.service.contract.ContractHandler;
 import com.ecc.util.crypto.RsaUtil;
 
-import java.security.KeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.List;
@@ -27,22 +25,22 @@ public class ContractHandlerImpl implements ContractHandler {
     }
 
     @Override
-    public void sign(String signType, Contract contract,PrivateKey privateKey) throws KeyException {
+    public void sign(String signType, Contract contract, PrivateKey privateKey) throws Exception {
         switch (signType) {
             case SENDER_SIGN:
-                contract.setSenderSign(RsaUtil.sign(contract.getRawMessage(),privateKey));
+                contract.setSenderSign(RsaUtil.sign(contract.getRawMessage(), privateKey));
                 break;
             case RECEIVER_SIGN:
                 String temp = contract.getRawMessage() + contract.getSenderSign();
                 contract.setReceiverSign(RsaUtil.sign(temp));
                 break;
             default:
-                throw new ContractException("Invalid type of signature!");
+                throw new Exception("Invalid type of signature!");
         }
     }
 
     @Override
-    public boolean verify(String verifyType, Contract contract, PublicKey publicKey) {
+    public boolean verify(String verifyType, Contract contract, PublicKey publicKey) throws Exception {
         if (verifyType.equals(VERIFY_RECEIVER_SIGN)
                 && contract.getTransactionType().equals(TransactionType.TICKET)) {
             return true;
@@ -60,20 +58,20 @@ public class ContractHandlerImpl implements ContractHandler {
                 signedMessage = contract.getReceiverSign();
                 break;
             default:
-                throw new ContractException("Invalid type of verification!");
+                throw new Exception("Invalid type of verification!");
         }
 
         return RsaUtil.verify(publicKey, rawMessage, signedMessage);
     }
 
     @Override
-    public Contract extractContractFromBlock(String contractId, Block block) {
+    public Contract extractContractFromBlock(String contractId, Block block) throws Exception {
         List<Contract> contracts = block.getContracts();
         for (Contract contract : contracts) {
             if (contract.getId().equals(contractId)) {
                 return contract;
             }
         }
-        throw new ContractException("Cannot extract contract in given block!");
+        throw new Exception("Cannot extract contract in given block!");
     }
 }

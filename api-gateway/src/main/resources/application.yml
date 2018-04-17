@@ -1,0 +1,18 @@
+server:
+    port: 29602
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:29600/eureka
+    instance:
+        appname: api-gateway
+        lease-renewal-interval-in-seconds: 10
+        lease-expiration-duration-in-seconds: 10
+
+spring:
+    application:
+        name: api-gateway
+    output:
+        ansi:
+            enabled: always

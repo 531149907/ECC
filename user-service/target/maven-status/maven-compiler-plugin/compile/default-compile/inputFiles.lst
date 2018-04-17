@@ -1,4 +1,5 @@
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/service/UserService.java
+/Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/web/api/PeerApi.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/config/SpringConfig.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/constants/ApplicationConstants.java
@@ -6,4 +7,3 @@
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/UserServiceApplication.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/web/UserServiceApi.java
 /Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/config/database/MysqlConfig.java
-/Users/zhouzhixuan/Desktop/ECC/user-service/src/main/java/com/ecc/web/exceptions/UserException.java

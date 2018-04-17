@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BlockService {
 
-    public void addContractToBlock(Contract contract) {
+    public void addContractToBlock(Contract contract) throws Exception {
         BlockHandler blockHandler = BlockHandlerImpl.getHandler();
         blockHandler.addContractToBlock(contract);
     }

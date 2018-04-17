@@ -1,0 +1,19 @@
+server:
+    port: 29626
+
+spring:
+    application:
+        name: peer
+    output:
+        ansi:
+            enabled: always
+    rabbitmq:
+        host: hins.work
+        port: 5672
+        username: admin
+        password: admin
+    servlet:
+        multipart:
+            enabled: true
+            max-file-size: 100MB
+            max-request-size: 100Mb

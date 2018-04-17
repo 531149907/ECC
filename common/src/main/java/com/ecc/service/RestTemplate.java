@@ -1,18 +1,21 @@
 package com.ecc.service;
 
-import org.springframework.http.*;
+import com.ecc.exceptions.CustomException;
+import com.ecc.exceptions.ExceptionCollection;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,71 +31,27 @@ public class RestTemplate {
         List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
         messageConverters.removeIf(converter -> converter instanceof StringHttpMessageConverter);
         messageConverters.add(new StringHttpMessageConverter(Charset.forName("utf-8")));
+        messageConverters.add(new MappingJackson2HttpMessageConverter());
     }
 
-    public <T> T get(String url, HashMap<String, Object> params, Class<T> clazz) {
-        if (params == null) {
-            params = new HashMap<>();
-        }
-        url = url(url) + "?";
-        StringBuilder builder = new StringBuilder();
-        builder.append(url);
-
-        for (String key : params.keySet()) {
-            builder.append(key).append("=").append(params.get(key)).append("&");
-        }
-
-        return restTemplate.exchange(builder.toString(), HttpMethod.GET, null, clazz, new HashMap<>()).getBody();
+    public <T> T get(String url, HashMap<String, String> params, @NonNull Class<T> responseType) {
+        String fullUrl = appendUrl(url, params);
+        return restTemplate.getForEntity(fullUrl, responseType, new HashMap<>()).getBody();
     }
 
-    public <T> T post(String url, HashMap<String, Object> params, Class<T> clazz, boolean hasBody){
-        if (params == null) {
-            params = new HashMap<>();
-        }
-        url = url(url);
 
-        return restTemplate.postForEntity(url,params.get("contract"),clazz,new HashMap<>()).getBody();
+    public <T> T post(String url, HashMap<String, String> params, @Nullable Object request, Class<T> responseType) {
+        String fullUrl = appendUrl(url, params);
+        return restTemplate.postForEntity(fullUrl, request, responseType).getBody();
     }
 
-    public <T> T post(String url, HashMap<String, Object> params, Class<T> clazz) {
-        if (params == null) {
-            params = new HashMap<>();
-        }
-        url = url(url);
-
-        MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-
-        for (String key : params.keySet()) {
-            map.add(key, params.get(key));
-        }
-
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.MULTIPART_FORM_DATA);
-        HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<>(map, httpHeaders);
-
-        return restTemplate.exchange(url, HttpMethod.POST, entity, clazz, new HashMap<>()).getBody();
-    }
-
-    public String download(String url, HashMap<String, Object> params, String downloadPath) {
-        if (params == null) {
-            params = new HashMap<>();
-        }
-        url = url(url);
-
-        MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-        for (String key : params.keySet()) {
-            map.add(key, params.get(key));
-        }
-
-        HttpHeaders httpHeaders = new HttpHeaders();
-        List<MediaType> mediaTypes = new ArrayList<>();
-        mediaTypes.add(MediaType.ALL);
-        httpHeaders.setAccept(mediaTypes);
-        HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<>(map, httpHeaders);
-        ResponseEntity<byte[]> responseEntity = restTemplate.exchange(url, HttpMethod.POST, entity, byte[].class, new HashMap<>());
+    public String download(String url, HashMap<String, String> params, String downloadPath) {
+        String fullUrl = appendUrl(url, params);
+        ResponseEntity<byte[]> responseEntity = restTemplate.exchange(fullUrl, HttpMethod.POST, null, byte[].class, new HashMap<>());
 
         Path downloadDir = Paths.get(downloadPath);
         Path filePath = Paths.get(downloadDir.toString() + "/" + params.get("fileName"));
+
         try {
             if (!Files.exists(downloadDir)) {
                 Files.createDirectories(downloadDir);
@@ -101,17 +60,27 @@ public class RestTemplate {
                 Files.createFile(filePath);
             }
             Files.write(filePath, responseEntity.getBody());
-            return "download successfully!";
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "download failed!";
+        throw new CustomException(ExceptionCollection.FILE_DOWNLOAD_FAILED);
     }
 
-    private String url(String url) {
-        if (!url.contains("http")) {
-            url = "http://" + url;
+    private String appendUrl(String url, HashMap<String, String> params) {
+        StringBuilder builder = new StringBuilder();
+        if (params == null) {
+            params = new HashMap<>();
         }
-        return url;
+
+        if (!url.contains("http")) {
+            builder.append("http://");
+        }
+        builder.append(url).append("?");
+
+        for (String key : params.keySet()) {
+            builder.append(key).append("=").append(params.get(key)).append("&");
+        }
+
+        return builder.toString();
     }
 }

@@ -1,7 +1,6 @@
 package com.ecc.web;
 
 import com.ecc.service.transfer.TransferService;
-import com.ecc.web.exceptions.FileException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,12 +26,12 @@ public class FileApi {
 
     @RequestMapping(value = "store", method = RequestMethod.POST, consumes = MULTIPART_FORM_DATA_VALUE)
     public void store(@RequestParam("fileName") String fileName,
-                      @RequestPart("file") MultipartFile file) throws FileException {
+                      @RequestPart("file") MultipartFile file) throws Exception {
         transferService.storeFile(fileName, file);
     }
 
     @PostMapping("push")
-    public byte[] push(@RequestParam("fileName") String fileName) throws FileException {
+    public byte[] push(@RequestParam("fileName") String fileName) throws Exception {
         return transferService.pushFile(fileName);
     }
 

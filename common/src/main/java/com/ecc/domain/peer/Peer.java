@@ -25,23 +25,20 @@ public class Peer implements Serializable {
     private String dir;
     private String level;
     private String channel;
+    private String status;
+    private String token;
 
     @JsonIgnore
     private String secretKey;
-    @JsonIgnore
-    private static Peer peer;
 
-    private Peer() {}
+    public Peer() {}
 
-    public static Peer getPeer() {
-        if (peer == null) {
-            peer = new Peer();
-        }
-        return peer;
+    private static class PeerHolder{
+        private static final Peer instance = new Peer();
     }
 
-    public PublicKey getPublicKey(String publicKey) {
-        return RsaUtil.getPublicKeyFromString(publicKey);
+    public static Peer getInstance() {
+        return PeerHolder.instance;
     }
 
     public void show() {
@@ -58,6 +55,7 @@ public class Peer implements Serializable {
         System.out.println("     Level:\t" + OutputFormatter.format(level, 15));
         System.out.println("   Channel:\t" + OutputFormatter.format(channel, 15));
         System.out.println("    Secret:\t" + OutputFormatter.format(secretKey, 15));
+        System.out.println("     Token:\t" + OutputFormatter.format(token, 15));
         System.out.println("==============================================================================");
         System.out.println("\n\n");
     }

@@ -1,8 +1,11 @@
 com/ecc/domain/common/Hashable.class
+com/ecc/api/PeerApi.class
+com/ecc/api/BlockServiceApi.class
 com/ecc/domain/transaction/impl/TicketTransaction.class
 com/ecc/domain/block/Block.class
 com/ecc/util/crypto/AesUtil.class
 com/ecc/domain/transaction/TransactionType.class
+com/ecc/api/UserServiceApi.class
 com/ecc/util/converter/BytesUtil.class
 com/ecc/domain/contract/Contract.class
 com/ecc/domain/transaction/impl/FileTransaction.class
@@ -10,8 +13,11 @@ com/ecc/util/converter/Base64Util.class
 com/ecc/util/crypto/RsaUtil.class
 com/ecc/domain/security/KeyStorage.class
 com/ecc/domain/transaction/PermissionType.class
+com/ecc/api/ContractServiceApi.class
 com/ecc/constants/ApplicationConstants.class
+com/ecc/exceptions/CustomException.class
 com/ecc/domain/peer/Peer$PeerBuilder.class
+com/ecc/api/FileServiceApi.class
 com/ecc/util/system/NetworkUtil.class
 com/ecc/domain/contract/Contract$ContractBuilder.class
 com/ecc/domain/peer/Peer.class
@@ -23,4 +29,5 @@ com/ecc/service/RestTemplate.class
 com/ecc/domain/transaction/impl/TicketTransaction$TicketTransactionBuilder.class
 com/ecc/domain/security/KeyStorage$KeyStorageBuilder.class
 com/ecc/domain/transaction/Transaction.class
+com/ecc/api/OrdererServiceApi.class
 com/ecc/domain/transaction/impl/FileTransaction$FileTransactionBuilder.class

@@ -1,8 +1,13 @@
 package com.ecc.dao;
 
 import com.ecc.domain.peer.Peer;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @Mapper
@@ -16,18 +21,15 @@ public interface PeerMapper {
     @Select("select * from t_peer where ip = #{arg0}")
     Peer getPeerByIp(String ip);
 
-    @Update("update t_peer set ip = #{ip}, port = #{port}, dir = #{dir}")
+    @Select("select * from t_peer where status='up'")
+    List<Peer> getUpPeers();
+
+    @Select("select count(*) from t_peer where token = #{arg0}")
+    int getTokenExists(String token);
+
+    @Update("update t_peer set token = #{arg1} where email = #{arg0}")
+    void updateToken(String email, String token);
+
+    @Update("update t_peer set ip = #{ip}, port = #{port}, dir = #{dir}, token = #{token}, status = #{status} where email = #{email}}")
     void updatePeer(Peer peer);
-
-    @Insert("insert into t_verify(email, code, password) values(#{arg0}, #{arg1}, #{arg2})")
-    void addVerification(String email, String uuid, String password);
-
-    @Select("select code from t_verify where email = #{arg0}")
-    String getVerificationCode(String email);
-
-    @Select("select password from t_verify where email = #{arg0}")
-    String getVerificationPassword(String email);
-
-    @Delete("delete from t_verify where email = #{arg0}")
-    void deleteVerification(String email);
 }

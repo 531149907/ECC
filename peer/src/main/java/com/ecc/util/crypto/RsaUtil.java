@@ -2,6 +2,8 @@ package com.ecc.util.crypto;
 
 import com.ecc.domain.peer.Peer;
 import com.ecc.domain.security.KeyStorage;
+import com.ecc.exceptions.CustomException;
+import com.ecc.exceptions.ExceptionCollection;
 import com.ecc.util.converter.Base64Util;
 import com.ecc.util.converter.BytesUtil;
 import sun.misc.BASE64Decoder;
@@ -69,7 +71,7 @@ public final class RsaUtil {
         }
     }
 
-    public static KeyStorage loadKeyPair(String email) throws KeyException {
+    public static KeyStorage loadKeyPair(String email) {
         email = HashUtil.hash(email);
         Path publicKeyPath = Paths.get(PATH_KEY + email + SUFFIX_PUBLIC_KEY);
         Path privateKeyPath = Paths.get(PATH_KEY + email + SUFFIX_PRIVATE_KEY);
@@ -81,10 +83,10 @@ public final class RsaUtil {
                 PrivateKey privateKey = (PrivateKey) BytesUtil.toObject(privateBytes);
                 return new KeyStorage(publicKey, privateKey);
             } catch (IOException e) {
-                throw new KeyException("load key files error!");
+                throw new CustomException(ExceptionCollection.KEY_KEY_FILES_NOT_EXISTS);
             }
         }
-        throw new KeyException("key files not exists!");
+        throw new CustomException(ExceptionCollection.KEY_KEY_FILES_NOT_EXISTS);
     }
 
     private static byte[] encrypt(byte[] data, PublicKey publicKey) {
@@ -149,8 +151,8 @@ public final class RsaUtil {
         return null;
     }
 
-    public static String sign(String rawMessage) throws KeyException {
-        KeyStorage keyStorage = RsaUtil.loadKeyPair(Peer.getPeer().getEmail());
+    public static String sign(String rawMessage) {
+        KeyStorage keyStorage = RsaUtil.loadKeyPair(Peer.getInstance().getEmail());
         PrivateKey privateKey = keyStorage.getPrivateKey();
         String hashedMessage = HashUtil.hash(rawMessage);
         return Base64Util.encode(sign(privateKey, hashedMessage.getBytes()));

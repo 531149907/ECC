@@ -16,7 +16,7 @@ public interface BlockHandler {
     void deleteBlock(int blockIndex);
 
     //往临时 Block 添加Contract
-    void addContractToBlock(Contract contract);
+    void addContractToBlock(Contract contract) throws Exception;
 
     //获取临时 Block
     Block getTempBlock();
@@ -31,13 +31,13 @@ public interface BlockHandler {
     void createGodBlock();
 
     //验证 order service 广播的 block 与本地的 block 是否一致，并进行本地上链
-    boolean verifyAndImportBlock(Block newBlock);
+    boolean verifyAndImportBlock(Block newBlock) throws Exception;
 
     //导入缺失的 blocks
     void importMissingBlocks(int currentBlockIndex);
 
     //导入temp block 中缺失的contracs
-    void importMissingContracts(Block newBlock);
+    void importMissingContracts(Block newBlock) throws Exception;
 
     //更新 Block 池
     void flushBlocks();
