@@ -95,7 +95,7 @@ public final class AesUtil {
                 Files.createFile(outputFilePath);
             }
 
-            if(Files.exists(inputFilePath)){
+            if (Files.exists(inputFilePath)) {
                 InputStream inputStream = new FileInputStream(inputFilePath.toFile());
                 OutputStream outputStream = new FileOutputStream(outputFilePath.toFile());
 

@@ -1,7 +1,6 @@
 package com.ecc.domain.peer;
 
 import com.ecc.util.converter.OutputFormatter;
-import com.ecc.util.crypto.RsaUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.security.PublicKey;
 
 @Getter
 @Setter
@@ -31,9 +29,10 @@ public class Peer implements Serializable {
     @JsonIgnore
     private String secretKey;
 
-    public Peer() {}
+    public Peer() {
+    }
 
-    private static class PeerHolder{
+    private static class PeerHolder {
         private static final Peer instance = new Peer();
     }
 

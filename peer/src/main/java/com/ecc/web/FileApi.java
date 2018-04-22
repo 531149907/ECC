@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Paths;
 
 import static com.ecc.constants.ApplicationConstants.PATH_TEMP;
-import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
 @RequestMapping("file")
@@ -24,19 +23,20 @@ public class FileApi {
         transferService.uploadFile(filePath);
     }
 
-    @RequestMapping(value = "store", method = RequestMethod.POST, consumes = MULTIPART_FORM_DATA_VALUE)
+    @PostMapping("store")
     public void store(@RequestParam("fileName") String fileName,
                       @RequestPart("file") MultipartFile file) throws Exception {
         transferService.storeFile(fileName, file);
     }
 
     @PostMapping("push")
-    public byte[] push(@RequestParam("fileName") String fileName) throws Exception {
+    public byte[] push(@RequestParam("fileName") String fileName) {
         return transferService.pushFile(fileName);
     }
 
     @PostMapping("download")
-    public void download(@RequestBody String ticketCode) throws Exception {
-        transferService.download(ticketCode);
+    public void download(@RequestParam("password") String password,
+                         @RequestBody String ticketCode) throws Exception {
+        transferService.download(password, ticketCode);
     }
 }

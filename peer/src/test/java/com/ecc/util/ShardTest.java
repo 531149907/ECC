@@ -1,15 +1,14 @@
 package com.ecc.util;
 
+import com.ecc.util.crypto.AesUtil;
 import com.ecc.util.shard.ShardUtil;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-;import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-@SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
+
 public class ShardTest {
     public static final String SPLIT_MODE = "split_mode";
     public static final String RECOVER_MODE = "recover_mode";
@@ -24,33 +23,40 @@ public class ShardTest {
     private static final String osPlatform = System.getProperty("os.name");
 
     @Test
-    public void test() throws Exception {
-        String fileDir = "/Users/zhouzhixuan/Desktop/test0/_local/";
-        String fileName = "IMG_0098.PNG";
-        String scriptPath = "./src/main/resources/tools/shard/macOS/encoder";
-
-        String[] command = new String[]{
-                scriptPath,
-                fileDir + fileName,
-                String.valueOf(MAX_SHARDS),
-                String.valueOf(CHECK_BLOCK),
-                CODING_TECHNIQUE,
-                String.valueOf(BIT_WORD_SIZE),
-                String.valueOf(PACKET_SIZE),
-                String.valueOf(BUFFER_SIZE),
-        };
-
-        ProcessBuilder processBuilder = new ProcessBuilder("/bin/chmod", "755", scriptPath);
-        Process process = processBuilder.start();
-        process.waitFor();
-
-        Process ps = Runtime.getRuntime().exec(command);
-        ps.waitFor();
-
+    public void mainTest() throws Exception {
+        //encryptFile();
+        //shard();
+        //combine();
+        decryptFile();
     }
 
     @Test
-    public void test0() throws Exception {
-        ShardUtil.dealWithFile(ShardUtil.RECOVER_MODE,"/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098.PNG");
+    public void shard() throws Exception {
+        ShardUtil.dealWithFile(ShardUtil.SPLIT_MODE, "/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted.PNG");
+    }
+
+    @Test
+    public void combine() throws Exception {
+        ShardUtil.dealWithFile(ShardUtil.RECOVER_MODE, "/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted.PNG");
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_k1.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_k2.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_k3.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_k4.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_k5.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_m1.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_m2.PNG"));
+        Files.deleteIfExists(Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted_meta.txt"));
+    }
+
+    private void encryptFile() throws Exception {
+        Path originalPath = Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098.PNG");
+        Path encryptPath = Paths.get("/Users/zhouzhixuan/Desktop/test0/_local/IMG_0098_encrypted.PNG");
+        AesUtil.encrypt("ZhouZhiXuan520011", originalPath, encryptPath);
+    }
+
+    private void decryptFile() throws Exception {
+        Path originalPath = Paths.get("/Users/zhouzhixuan/Desktop/test0/temp/IMG_0098.PNG");
+        Path decryptPath = Paths.get("/Users/zhouzhixuan/Desktop/test0/temp/IMG_0098_decrypted.PNG");
+        AesUtil.decrypt("ZhouZhiXuan520011", originalPath, decryptPath);
     }
 }

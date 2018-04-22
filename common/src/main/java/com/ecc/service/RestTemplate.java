@@ -2,14 +2,18 @@ package com.ecc.service;
 
 import com.ecc.exceptions.CustomException;
 import com.ecc.exceptions.ExceptionCollection;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.*;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MimeType;
+import org.springframework.util.MultiValueMap;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -39,18 +43,36 @@ public class RestTemplate {
         return restTemplate.getForEntity(fullUrl, responseType, new HashMap<>()).getBody();
     }
 
+    public <T> T get(String url, HashMap<String, String> params, @NonNull ParameterizedTypeReference typeReference) {
+        String fullUrl = appendUrl(url, params);
+        return (T) restTemplate.exchange(fullUrl, HttpMethod.GET, null, typeReference).getBody();
+    }
 
-    public <T> T post(String url, HashMap<String, String> params, @Nullable Object request, Class<T> responseType) {
+    public <T> T post(String url, HashMap<String, String> params, @NonNull Object request, @Nullable Class<T> responseType) {
         String fullUrl = appendUrl(url, params);
         return restTemplate.postForEntity(fullUrl, request, responseType).getBody();
     }
 
-    public String download(String url, HashMap<String, String> params, String downloadPath) {
+    public <T> T postForUpload(String url, HashMap<String, String> params, @NonNull FileSystemResource resource, @Nullable Class<T> responseType) {
+        String fullUrl = appendUrl(url, params);
+
+        HttpHeaders headers = new HttpHeaders();
+        MediaType type = MediaType.parseMediaType("multipart/form-data");
+        headers.setContentType(type);
+        MultiValueMap<String, Object> form = new LinkedMultiValueMap<>();
+        form.add("file", resource);
+
+        HttpEntity<MultiValueMap<String, Object>> files = new HttpEntity<>(form, headers);
+
+        return restTemplate.postForEntity(fullUrl, files, responseType).getBody();
+    }
+
+    public void download(String url, HashMap<String, String> params, String downloadPath) {
         String fullUrl = appendUrl(url, params);
         ResponseEntity<byte[]> responseEntity = restTemplate.exchange(fullUrl, HttpMethod.POST, null, byte[].class, new HashMap<>());
 
         Path downloadDir = Paths.get(downloadPath);
-        Path filePath = Paths.get(downloadDir.toString() + "/" + params.get("fileName"));
+        Path filePath = Paths.get(downloadDir.toString() + "/" + params.get("originalShardName"));
 
         try {
             if (!Files.exists(downloadDir)) {
@@ -60,6 +82,7 @@ public class RestTemplate {
                 Files.createFile(filePath);
             }
             Files.write(filePath, responseEntity.getBody());
+            return;
         } catch (IOException e) {
             e.printStackTrace();
         }

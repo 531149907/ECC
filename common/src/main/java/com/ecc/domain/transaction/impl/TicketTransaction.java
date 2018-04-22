@@ -4,6 +4,7 @@ import com.ecc.domain.common.Hashable;
 import com.ecc.domain.transaction.Transaction;
 import com.ecc.util.converter.OutputFormatter;
 import com.ecc.util.crypto.HashUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -18,8 +19,9 @@ public class TicketTransaction extends Transaction implements Serializable, Hash
     private String fileId;
     private String signFor;
     private String timestamp;
-    private String permissions;
+    private String permission;
     private String signer;
+    private String code;
 
     public String hash() {
         return HashUtil.hash(getRawMessage());
@@ -31,7 +33,7 @@ public class TicketTransaction extends Transaction implements Serializable, Hash
                 .append(fileId)
                 .append(signFor)
                 .append(timestamp)
-                .append(permissions)
+                .append(permission)
                 .append(signer);
         return builder.toString();
     }
@@ -44,7 +46,7 @@ public class TicketTransaction extends Transaction implements Serializable, Hash
         System.out.println("  Ticket id:\t" + OutputFormatter.format(fileId, 16));
         System.out.println("   Sign for:\t" + OutputFormatter.format(signFor, 16));
         System.out.println("  Timestamp:\t" + OutputFormatter.format(timestamp, 16));
-        System.out.println("Permissions:\t" + OutputFormatter.format(permissions, 16));
+        System.out.println("Permissions:\t" + OutputFormatter.format(permission, 16));
         System.out.println("     Signer:\t" + OutputFormatter.format(signer, 16));
         System.out.println("========================================================================================");
         System.out.println("\n\n");

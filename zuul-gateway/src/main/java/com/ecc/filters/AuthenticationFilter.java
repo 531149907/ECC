@@ -27,23 +27,54 @@ public class AuthenticationFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return false;
+        return true;
     }
 
     @Override
     public Object run() throws ZuulException {
+        //authentication();
+        System.out.println(getIpAddr());
+        return null;
+    }
+
+    public static String getIpAddr() {
+        RequestContext context = RequestContext.getCurrentContext();
+        HttpServletRequest request = context.getRequest();
+        String ipAddress;
+
+        ipAddress = request.getHeader("x-forwarded-for");
+        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getHeader("Proxy-Client-IP");
+        }
+        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getRemoteAddr();
+        }
+
+        if (ipAddress != null && ipAddress.length() > 15) {
+            if (ipAddress.indexOf(",") > 0) {
+                ipAddress = ipAddress.substring(0, ipAddress.indexOf(","));
+            }
+        }
+        return ipAddress;
+    }
+
+    private void authentication() {
         System.out.println("peer accessing gateway");
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
         String requestURI = request.getRequestURI();
 
-        if (!(requestURI.contains("register") || requestURI.contains("login") || requestURI.contains("verify"))) {
+        if (requestURI.contains("user-service")) {
+            context.setSendZuulResponse(true);
+        } else {
             String accessToken = request.getParameter("token");
             if (accessToken == null || accessToken.equals("")) {
                 context.setSendZuulResponse(false);
                 context.setResponseBody("Access denied, no access token found in request params.");
                 context.setResponseStatusCode(400);
-                return null;
             } else {
                 System.out.println("authentication in processing!");
                 if (userServiceApi.checkIfTokenExists(accessToken)) {
@@ -53,9 +84,6 @@ public class AuthenticationFilter extends ZuulFilter {
                 }
             }
         }
-
-        context.setSendZuulResponse(true);
-        return null;
     }
 
 }

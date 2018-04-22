@@ -2,11 +2,13 @@ package com.ecc.domain.block;
 
 import com.ecc.domain.common.Hashable;
 import com.ecc.domain.contract.Contract;
+import com.ecc.handler.MerkleTreeHandler;
 import com.ecc.util.converter.OutputFormatter;
 import com.ecc.util.crypto.HashUtil;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -19,14 +21,14 @@ public class Block implements Serializable, Hashable {
     private String timestamp;
     private String prevHash;
     private String merkleTreeRoot;
-    private List<Contract> contracts;
+    private List<Contract> contracts = new ArrayList<>();
 
     public String hash() {
         StringBuilder builder = new StringBuilder();
         builder.append(index)
                 .append(timestamp)
                 .append(prevHash)
-                .append(merkleTreeRoot);
+                .append(MerkleTreeHandler.buildTree(this));
         if (contracts != null && contracts.size() != 0) {
             for (Contract contract : contracts) {
                 builder.append(contract.hash());
@@ -52,5 +54,9 @@ public class Block implements Serializable, Hashable {
         }
         System.out.println("==============================================================================");
         System.out.println("\n\n");
+    }
+
+    public String getMerkleTreeRoot() {
+        return MerkleTreeHandler.buildTree(this);
     }
 }

@@ -1,0 +1,29 @@
+server:
+    port: 29630
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:29600/eureka
+            lease-renewal-interval-in-seconds: 10
+            lease-expiration-duration-in-seconds: 10
+    instance:
+        appname: file-service
+
+spring:
+    application:
+        name: file-service
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: 123456
+        url: jdbc:mysql://localhost:3306/ECC_test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    output:
+        ansi:
+            enabled: always
+    servlet:
+        multipart:
+            enabled: true
+            max-file-size: 100MB
+            max-request-size: 100MB
+

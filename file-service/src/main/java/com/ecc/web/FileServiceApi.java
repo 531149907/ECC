@@ -1,70 +1,102 @@
 package com.ecc.web;
 
+import com.ecc.dao.FileTransactionMapper;
+import com.ecc.dao.TicketTransactionMapper;
 import com.ecc.domain.transaction.impl.FileTransaction;
 import com.ecc.domain.transaction.impl.TicketTransaction;
-import com.ecc.service.FileService;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
-
 @RestController
 public class FileServiceApi {
-
     @Autowired
-    FileService fileService;
+    TicketTransactionMapper ticketTransactionMapper;
+    @Autowired
+    FileTransactionMapper fileTransactionMapper;
 
-    @GetMapping("transaction")
-    public FileTransaction getTransaction(@RequestParam("transactionId") String transactionId,
-                                          @RequestParam("transactionType") String transactionType) {
-        return fileService.getTransaction(transactionId, transactionType);
-    }
-
-    @RequestMapping(value = "upload", method = RequestMethod.POST, consumes = MULTIPART_FORM_DATA_VALUE)
-    public void receiveFileAndTransaction(@RequestParam("transaction") String transaction,
-                                          @RequestParam("fileName") String fileName,
-                                          @RequestPart("file") MultipartFile file) throws Exception {
-        FileTransaction transaction0 = new Gson().fromJson(transaction, FileTransaction.class);
-        fileService.receiveFileAndTransaction(transaction0, fileName, file);
-    }
-
-    @GetMapping("shard_hash")
-    public String getShardHash(@RequestParam("hashedShardName") String hashedFileName) {
-        return fileService.getShardHash(hashedFileName);
-    }
-
-    @GetMapping("transactions")
-    public List<FileTransaction> getFileTransactions(@RequestParam("fileId") String fileId) {
-        return fileService.getFileTransactionsByFileId(fileId);
-    }
-
-    @GetMapping("transactions/{owner}")
-    public List<String> getFileIds(@PathVariable("owner") String owner) {
-        return fileService.getFileIdsByOwner(owner);
-    }
-
-    @PostMapping("ticket/revoke")
-    public void revokeTicket(@RequestParam("ticketId") String ticketId,
-                             @RequestParam("timestamp") String timestamp,
-                             @RequestParam("ip") String ip,
-                             @RequestParam("port") Integer port) {
-        fileService.addTicketRevoke(ticketId, timestamp, ip, port);
-    }
-
-    @PostMapping("ticket/create")
-    public void createTicket(@RequestBody TicketTransaction transaction) {
-        fileService.addTicket(transaction);
-    }
-
-    @GetMapping("ticket/revoke")
-    public String isTicketRevoked(@RequestParam("ticketId") String ticketId) {
-        if (fileService.getTicketRevokeInfo(ticketId)) {
-            return "false";
+    @PutMapping("transaction/ticket")
+    public void addTicketTransaction(@RequestBody TicketTransaction transaction) {
+        try {
+            ticketTransactionMapper.addTicketTransaction(transaction);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return "true";
+    }
+
+    @PutMapping("transaction/ticket/revoke")
+    public void addTicketRevoke(@RequestParam("ticketId") String ticketId,
+                                @RequestParam("timestamp") String timestamp,
+                                @RequestParam("ip") String ip,
+                                @RequestParam("port") Integer port) {
+        try {
+            ticketTransactionMapper.addTicketRevoke(ticketId, timestamp, ip, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @GetMapping("transaction/ticket/revoke")
+    public boolean isTicketRevoked(@RequestParam("ticketId") String ticketId) {
+        try {
+            return ticketTransactionMapper.getTicketRevokeInfo(ticketId) != 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @PutMapping("transaction/file")
+    public void addFileTransaction(@RequestBody FileTransaction transaction) {
+        try {
+            fileTransactionMapper.addFileTransaction(transaction);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @GetMapping("transaction/file/id")
+    public FileTransaction getFileTransaction(@RequestParam("id") String id) {
+        try {
+            FileTransaction fileTransaction = fileTransactionMapper.getFileTransactionById(id);
+            return fileTransaction;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @GetMapping("transaction/file/hash")
+    public String getShardHashByHashedShardName(@RequestParam("hashedShareName") String hashedShardName) {
+        try {
+            return "\""+fileTransactionMapper.getShardHashByHashedShardName(hashedShardName)+"\"";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @GetMapping("transaction/files/fileId")
+    public List<FileTransaction> getFileTransactionsByFileId(@RequestParam("fileId") String fileId) {
+        try {
+            return fileTransactionMapper.getFileTransactionsByFileId(fileId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @GetMapping("transaction/files/owner")
+    public List<String> getOwnerFileIds(@RequestParam("owner") String owner) {
+        try {
+            return fileTransactionMapper.getOwnersFileIds(owner);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

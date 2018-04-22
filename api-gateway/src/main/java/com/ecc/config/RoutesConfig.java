@@ -25,7 +25,7 @@ public class RoutesConfig {
     }
 
     @Bean
-    public DispatcherHandler dispatcherHandler(){
+    public DispatcherHandler dispatcherHandler() {
         return new DispatcherHandler();
     }
 }

@@ -2,41 +2,49 @@ package com.ecc.service.transfer;
 
 import com.ecc.domain.contract.Contract;
 import com.ecc.domain.peer.Peer;
+import com.ecc.domain.transaction.PermissionType;
 import com.ecc.domain.transaction.TransactionType;
 import com.ecc.domain.transaction.impl.FileTransaction;
 import com.ecc.domain.transaction.impl.TicketTransaction;
+import com.ecc.exceptions.CustomException;
+import com.ecc.exceptions.ExceptionCollection;
+import com.ecc.handler.ContractHandler;
+import com.ecc.handler.TransferHandler;
 import com.ecc.service.RestTemplate;
-import com.ecc.service.block.BlockService;
-import com.ecc.service.contract.ContractHandler;
 import com.ecc.service.contract.ContractService;
-import com.ecc.service.contract.impl.ContractHandlerImpl;
 import com.ecc.service.peer.PeerService;
 import com.ecc.service.transaction.TransactionService;
-import com.ecc.service.transfer.impl.TransferHandlerImpl;
+import com.ecc.util.converter.Base64Util;
+import com.ecc.util.converter.BytesUtil;
 import com.ecc.util.converter.DateUtil;
 import com.ecc.util.crypto.HashUtil;
 import com.ecc.util.crypto.RsaUtil;
+import com.ecc.util.system.NetworkUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import static com.ecc.constants.ApplicationConstants.PATH_STORE;
+import static com.ecc.constants.ApplicationConstants.*;
 
 @Service
 public class TransferService {
     @Autowired
     RestTemplate restTemplate;
-    @Autowired
-    BlockService blockService;
     @Autowired
     ContractService contractService;
     @Autowired
@@ -47,22 +55,17 @@ public class TransferService {
     TaskExecutor taskExecutor;
 
     public void encryptFile(String path, String password) throws Exception {
-        TransferHandler transferHandler = TransferHandlerImpl.getHandler();
-        transferHandler.encryptFile(path, password);
+        TransferHandler.encryptFile(path, password);
     }
 
     public void decryptFile(String path, String password) throws Exception {
-        TransferHandler transferHandler = TransferHandlerImpl.getHandler();
-        transferHandler.decryptFile(path, password);
+        TransferHandler.decryptFile(path, password);
     }
 
     public void uploadFile(String filePath) throws Exception {
-        TransferHandler transferHandler = TransferHandlerImpl.getHandler();
-        ContractHandler contractHandler = ContractHandlerImpl.getHandler();
-
         File uploadFile = Paths.get(filePath).toFile();
 
-        List<Path> shardPaths = transferHandler.splitFile(filePath);
+        List<Path> shardPaths = TransferHandler.splitFile(filePath);
         List<String> peerList = peerService.getPeerList(shardPaths.size());
 
         PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getInstance().getEmail()).getPrivateKey();
@@ -86,6 +89,7 @@ public class TransferService {
                     .timestamp(DateUtil.getDate())
                     .fileLevel("LEVEL_A")
                     .build();
+            transaction.setTransactionType(TransactionType.FILE);
             Contract contract = Contract.builder()
                     .id(contractId)
                     .channel("default_queue")
@@ -94,42 +98,41 @@ public class TransferService {
                     .transactionHash(transaction.hash())
                     .timestamp(DateUtil.getDate())
                     .build();
-            contractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
+            ContractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
             sendFileAndTransaction(shardPaths.get(i), transaction);
             sendContract(contract);
         }
 
-        transferHandler.deleteTempShards();
     }
 
-    public void download(String ticketCode) throws Exception {
-        /*TicketTransaction transaction;
+    public void download(String password, String ticketCode) {
+        TicketTransaction transaction;
         try {
             transaction = (TicketTransaction) BytesUtil.toObject(Base64Util.decode(ticketCode));
         } catch (Exception e) {
-            throw new Exception("Ticket code not correct, unrecognized!");
+            throw new CustomException(ExceptionCollection.FILE_TICKET_UNRECOGNIZED_ERROR);
         }
 
         if (!transaction.getSignFor().equals(Peer.getInstance().getEmail())) {
-            throw new Exception("Ticket usage denied! Not signed for you to view the file!");
+            throw new CustomException(ExceptionCollection.FILE_TICKET_USAGE_ERROR);
         }
 
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("ticketId",transaction.getId());
-        params.put("token",Peer.getInstance().getToken());
-        if (restTemplate.get(SERVER_URL+"ticket/revoke",params,String.class).equals("true")) {
-            throw new Exception("Ticket was revoked!");
+        HashMap<String, String> params = new HashMap<>();
+        params.put("ticketId", transaction.getId());
+        params.put("token", Peer.getInstance().getToken());
+        if (restTemplate.get(SERVER_URL + "api/file-service/transaction/ticket/revoke", params, Boolean.class)) {
+            throw new CustomException(ExceptionCollection.FILE_TICKET_REVOKED_ERROR);
         }
 
-        switch (transaction.getPermissions()) {
+        switch (transaction.getPermission()) {
             case PermissionType.DOWNLOAD:
-                downloadFile(transaction);
+                downloadFile(password, transaction);
                 break;
             case PermissionType.SIGN:
                 break;
             case PermissionType.VIEW:
                 break;
-        }*/
+        }
     }
 
     public void storeFile(String fileName, MultipartFile multipartFile) throws Exception {
@@ -146,15 +149,15 @@ public class TransferService {
         throw new Exception("Store file failed!");
     }
 
-    public byte[] pushFile(String fileName) throws Exception {
-        /*Path filePath = Paths.get(PATH_STORE + fileName);
+    public byte[] pushFile(String fileName) {
+        Path filePath = Paths.get(PATH_STORE + fileName);
         if (Files.exists(filePath)) {
-            HashMap<String,Object> params = new HashMap<>();
-            params.put("hashedShardName",fileName);
-            params.put("token",Peer.getInstance().getToken());
-            String shardFileHash = restTemplate.get(SERVER_URL+"shard_hash",params,String.class);
+            HashMap<String, String> params = new HashMap<>();
+            params.put("hashedShardName", fileName);
+            params.put("token", Peer.getInstance().getToken());
+            String shardFileHash = restTemplate.get(SERVER_URL + "api/file-service/transaction/file/hash", params, String.class);
             if (!HashUtil.hash(filePath).equals(shardFileHash)) {
-                throw new Exception("Shard hash not match! File maybe damaged!");
+                throw new CustomException(ExceptionCollection.FILE_PUSH_ERROR);
             }
             try {
                 File file = filePath.toFile();
@@ -170,42 +173,75 @@ public class TransferService {
                 e.printStackTrace();
             }
         }
-        throw new Exception("File not exists!");*/
-        return null;
+        throw new CustomException(ExceptionCollection.FILE_PUSH_ERROR);
     }
 
     private void sendFileAndTransaction(Path filePath, FileTransaction transaction) {
-        /*try {
-            InputStream inputStream = new FileInputStream(filePath.toFile());
-            MultipartFile file = new MockMultipartFile("file", inputStream);
-            fileServiceUploadApi.receiveFileAndTransaction(new Gson().toJson(transaction),
-                    transaction.getHashedShardName(), file);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
+        taskExecutor.execute(() -> {
+            try {
+                restTemplate.post(SERVER_URL + "api/file-service/transaction/file", null, transaction, null);
+
+                HashMap<String, String> params = new HashMap<>();
+                params.put("email", transaction.getHolder());
+                Peer peer = restTemplate.get(SERVER_URL + "api/user-service/peer", params, Peer.class);
+
+                FileSystemResource resource = new FileSystemResource(filePath.toFile());
+
+                params = new HashMap<>();
+                params.put("fileName", transaction.getHashedShardName());
+                params.put("destination", peer.getIp() + ":" + peer.getPort());
+
+                restTemplate.postForUpload(SERVER_URL + "api/file-service/file/upload", params, resource, null);
+
+                Files.deleteIfExists(filePath);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void sendContract(Contract contract) {
-        //taskExecutor.execute(() -> contractServiceApi.receiveSenderSignedContract(contract));
+        taskExecutor.execute(() -> restTemplate.post(SERVER_URL + "api/contract-service/verify/sender", null, contract, null));
     }
 
-    private void downloadFile(TicketTransaction ticketTransaction) throws Exception {
-        /*List<FileTransaction> fileTransactions = fileServiceApi.getFileTransactions(ticketTransaction.getFileId());
+    private void downloadFile(String password, TicketTransaction ticketTransaction) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("fileId", ticketTransaction.getFileId());
+        List<FileTransaction> fileTransactions = restTemplate.get(SERVER_URL + "api/file-service/transaction/files/fileId", params, new ParameterizedTypeReference<List<FileTransaction>>() {
+        });
+
         for (FileTransaction transaction : fileTransactions) {
-            Peer holderPeer = userServiceApi.getPeer(transaction.getHolder(), "");
+            params = new HashMap<>();
+            params.put("email", transaction.getHolder());
+            Peer holderPeer = restTemplate.get(SERVER_URL + "api/user-service/peer", params, Peer.class);
             String holderIp = holderPeer.getIp();
             int holderPort = holderPeer.getPort();
-            HashMap<String, Object> params = new HashMap<>();
-            params.put("fileName", transaction.getOriginalShardName());
-            restTemplate.download(holderIp + ":" + holderPort + "/file/push", params, PATH_DOWNLOAD);
+            params = new HashMap<>();
+            params.put("fileName", transaction.getHashedShardName());
+            params.put("originalShardName", transaction.getOriginalShardName());
+            restTemplate.download(holderIp + ":" + holderPort + "/file/push", params, PATH_TEMP);
         }
 
-        //todo: send revoke ticket
-        fileServiceApi.revokeTicket(ticketTransaction.getId(), DateUtil.getDate(), Peer.getInstance().getIp(), Peer.getInstance().getPort());
-        TransferHandler handler = TransferHandlerImpl.getHandler();
-        List<Path> downloadedFilePath = handler.combineFiles(PATH_DOWNLOAD + fileTransactions.get(0).getOriginalFileName());
+        params = new HashMap<>();
+        params.put("ticketId", ticketTransaction.getId());
+        params.put("timestamp", DateUtil.getDate());
+        params.put("ip", NetworkUtil.getLocalAddress());
+        params.put("port", String.valueOf(29626));
+        restTemplate.post(SERVER_URL + "api/file-service/transaction/ticket/revoke", params, null, null);
+
+        List<Path> downloadedFilePath = TransferHandler.combineFiles(PATH_TEMP + fileTransactions.get(0).getOriginalFileName());
         if (downloadedFilePath.isEmpty()) {
-            throw new Exception("Failed to recover file from shards!");
-        }*/
+            throw new CustomException(ExceptionCollection.FILE_DOWNLOAD_COMBINE_ERROR);
+        }
+
+        try {
+            decryptFile(PATH_TEMP + fileTransactions.get(0).getOriginalFileName(), password);
+            for (FileTransaction transaction : fileTransactions) {
+                Files.deleteIfExists(Paths.get(PATH_TEMP + transaction.getOriginalShardName()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("download success!");
     }
 }

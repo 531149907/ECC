@@ -8,8 +8,8 @@
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/util/crypto/HashUtil.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/transfer/TransferHandler.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/util/shard/ShardUtil.java
-/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/GlobalExceptionHandler.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/PeerApplication.java
+/Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/web/exceptions/GlobalExceptionHandler.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/constants/ApplicationConstants.java
 /Users/zhouzhixuan/Desktop/ECC/peer/src/main/java/com/ecc/service/transfer/impl/TransferHandlerImpl.java

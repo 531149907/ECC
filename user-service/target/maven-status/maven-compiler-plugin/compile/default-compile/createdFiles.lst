@@ -1,9 +1,8 @@
 com/ecc/web/UserServiceApi.class
 com/ecc/config/database/MysqlConfig.class
-com/ecc/web/api/PeerApi.class
+com/ecc/constants/Constants.class
 com/ecc/config/SpringConfig.class
 com/ecc/service/UserService.class
 com/ecc/UserServiceApplication.class
-com/ecc/web/GlobalExceptionHandler.class
-com/ecc/constants/ApplicationConstants.class
+com/ecc/dao/VerificationMapper.class
 com/ecc/dao/PeerMapper.class

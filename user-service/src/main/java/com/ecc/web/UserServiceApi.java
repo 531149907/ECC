@@ -19,57 +19,106 @@ public class UserServiceApi {
 
     @PutMapping("peer")
     public void addPeer(@RequestBody Peer peer) {
-        peerMapper.addPeer(peer);
+        try {
+            peerMapper.addPeer(peer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("peer/email")
     public Peer getPeerByEmail(@RequestParam("email") String email) {
-        return peerMapper.getPeerByEmail(email);
+        try {
+            return peerMapper.getPeerByEmail(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping("peer/ip")
     public Peer getPeerByIp(@RequestParam("ip") String ip) {
-        return peerMapper.getPeerByIp(ip);
+        try {
+            return peerMapper.getPeerByIp(ip);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping("peer")
     public List<Peer> getUpPeers() {
-        return peerMapper.getUpPeers();
+        try {
+            return peerMapper.getUpPeers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping("token")
     public boolean checkIfTokenExists(@RequestParam("token") String token) {
-        return peerMapper.getTokenExists(token) == 1;
+        try {
+            return peerMapper.getTokenExists(token) == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @PostMapping("token")
     public void updateToken(@RequestParam("email") String email,
                             @RequestParam("token") String token) {
-        peerMapper.updateToken(email, token);
+        try {
+            peerMapper.updateToken(email, token);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @PostMapping("peer")
     public void updatePeer(@RequestBody Peer peer) {
-        peerMapper.updatePeer(peer);
+        try {
+            peerMapper.updatePeer(peer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @PutMapping("verify")
     public void addVerification(@RequestBody Verification verification) {
-        verificationMapper.addVerification(verification);
+        try {
+            verificationMapper.addVerification(verification);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("verify")
     public Verification getVerification(@RequestParam("email") String email) {
-        return verificationMapper.getVerification(email);
+        try {
+            return verificationMapper.getVerification(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @DeleteMapping("verify")
     public void deleteVerification(@RequestParam("email") String email) {
-        verificationMapper.deleteVerification(email);
+        try {
+            verificationMapper.deleteVerification(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @PostMapping("verify")
     public void updateVerification(@RequestBody Verification verification) {
-        verificationMapper.updateVerification(verification);
+        try {
+            verificationMapper.updateVerification(verification);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -12,8 +12,13 @@ public class CustomExceptionHandler {
     @ResponseBody
     public Map<String, Object> handleCustomException(CustomException e) {
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("errorMsg", e.getExceptionCollection().getMessage());
-        resultMap.put("code", e.getExceptionCollection().getCode());
+        if (e.getExceptionCollection() == null) {
+            resultMap.put("errorMsg", e.getMessage());
+            resultMap.put("code", e.getCode());
+        } else {
+            resultMap.put("errorMsg", e.getExceptionCollection().getMessage());
+            resultMap.put("code", e.getExceptionCollection().getCode());
+        }
         return resultMap;
     }
 

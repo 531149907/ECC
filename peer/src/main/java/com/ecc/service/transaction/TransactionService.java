@@ -5,15 +5,21 @@ import com.ecc.domain.peer.Peer;
 import com.ecc.domain.transaction.TransactionType;
 import com.ecc.domain.transaction.impl.FileTransaction;
 import com.ecc.domain.transaction.impl.TicketTransaction;
+import com.ecc.exceptions.CustomException;
+import com.ecc.exceptions.ExceptionCollection;
+import com.ecc.handler.ContractHandler;
 import com.ecc.service.RestTemplate;
-import com.ecc.service.contract.ContractHandler;
-import com.ecc.service.contract.impl.ContractHandlerImpl;
+import com.ecc.util.converter.Base64Util;
+import com.ecc.util.converter.BytesUtil;
 import com.ecc.util.converter.DateUtil;
 import com.ecc.util.crypto.RsaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Files;
 import java.security.PrivateKey;
 import java.util.HashMap;
 import java.util.List;
@@ -28,17 +34,15 @@ public class TransactionService {
     @Autowired
     RestTemplate restTemplate;
 
-    public void signTicket(String fileId, String signFor, String permissions) throws Exception {
-        /*ContractHandler contractHandler = ContractHandlerImpl.getHandler();
-
-        //check if fileId belongs to signer
-        HashMap<String, Object> params = new HashMap<>();
+    public String signTicket(String fileId, String signFor, String permissions){
+        HashMap<String, String> params = new HashMap<>();
         params.put("fileId", fileId);
         params.put("token", Peer.getInstance().getToken());
-        List<FileTransaction> fileTransactions = restTemplate.get(SERVER_URL + "file-service/transaction", params, List.class);
+        List<FileTransaction> fileTransactions = restTemplate.get(SERVER_URL + "api/file-service/transaction/files/fileId", params, new ParameterizedTypeReference<List<FileTransaction>>() {
+        });
 
         if (!fileTransactions.get(0).getOwner().equals(Peer.getInstance().getEmail())) {
-            throw new Exception("File not belongs to you! Cannot sign ticket!");
+            throw new CustomException(ExceptionCollection.FILE_TICKET_CREATE_ERROR);
         }
 
         String transactionId = UUID.randomUUID().toString();
@@ -47,10 +51,10 @@ public class TransactionService {
                 .fileId(fileId)
                 .signFor(signFor)
                 .timestamp(DateUtil.getDate())
-                .permissions(permissions)
+                .permission(permissions)
                 .signer(Peer.getInstance().getEmail())
                 .build();
-
+        ticketTransaction.setTransactionType(TransactionType.TICKET);
         PrivateKey peerPrivateKey = RsaUtil.loadKeyPair(Peer.getInstance().getEmail()).getPrivateKey();
 
         Contract contract = Contract.builder()
@@ -60,27 +64,26 @@ public class TransactionService {
                 .transactionId(transactionId)
                 .timestamp(DateUtil.getDate())
                 .build();
-        contractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
+        ContractHandler.sign(Contract.SENDER_SIGN, contract, peerPrivateKey);
 
         sendTransaction(ticketTransaction);
-        sendContract(contract);*/
+        sendContract(contract);
+
+        createCodeImg(ticketTransaction);
+
+        return Base64Util.encode(BytesUtil.toBytes(ticketTransaction));
     }
 
     private void sendContract(Contract contract) {
-        /*taskExecutor.execute(() -> {
-            HashMap<String,Object> params = new HashMap<>();
-            params.put("token",Peer.getInstance().getToken());
-            params.put("contract",contract);
-            restTemplate.post(SERVER_URL+"contract-service/upload",params,null);
-        });*/
+        taskExecutor.execute(() -> restTemplate.post(SERVER_URL + "api/contract-service/verify/sender", null, contract, null));
+
     }
 
     private void sendTransaction(TicketTransaction transaction) {
-       /* taskExecutor.execute(() -> {
-            HashMap<String,Object> params = new HashMap<>();
-            params.put("token",Peer.getInstance().getToken());
-            params.put("transaction",transaction);
-            restTemplate.post(SERVER_URL+"ticket/create",params,null);
-        });*/
+        taskExecutor.execute(() -> restTemplate.post(SERVER_URL + "api/file-service/transaction/ticket", null, transaction, null));
+    }
+
+    private void createCodeImg(TicketTransaction ticketTransaction){
+        //todo: 生成二维码
     }
 }

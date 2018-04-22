@@ -1,36 +1,53 @@
 package com.ecc.web;
 
+import com.ecc.dao.ContractMapper;
 import com.ecc.domain.contract.Contract;
-import com.ecc.domain.transaction.impl.FileTransaction;
-import com.ecc.service.ContractService;
-import com.ecc.service.RestTemplate;
-import com.ecc.service.contract.ContractHandler;
-import com.ecc.service.contract.impl.ContractHandlerImpl;
-import com.ecc.util.crypto.RsaUtil;
-import com.ecc.web.api.BlockServiceApi;
-import com.ecc.web.api.FileServiceApi;
-import com.ecc.web.api.UserServiceApi;
-import com.ecc.web.exceptions.ContractException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class ContractServiceApi {
-
     @Autowired
-    ContractService contractService;
+    ContractMapper contractMapper;
 
-    @PostMapping("verify")
-    public void verifyReceiverSignedContract(@RequestBody Contract contract) throws ContractException {
-        contractService.verifyReceiverSignedContract(contract);
+    @PutMapping("contract")
+    public void addContract(@RequestBody Contract contract) {
+        try {
+            contractMapper.addContract(contract);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    @PostMapping("upload")
-    public void receiveSenderSignedContract(@RequestBody Contract contract) {
-        contractService.receiveSenderSignedContract(contract);
+    @GetMapping("contracts")
+    public List<Contract> getTop10contracts() {
+        try {
+            return contractMapper.getTop10Contracts();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @GetMapping("contract")
+    public int getContractCount() {
+        try {
+            return contractMapper.getContractsCount();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @DeleteMapping("contract")
+    public void deleteContract(@RequestParam("id") String id) {
+        try {
+            contractMapper.deleteContractById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

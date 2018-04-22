@@ -1,11 +1,7 @@
 com/ecc/config/database/MysqlConfig.class
-com/ecc/web/exceptions/UserException.class
+com/ecc/constants/Constants.class
 com/ecc/config/SpringConfig.class
-com/ecc/web/exceptions/FileException.class
+com/ecc/dao/FileTransactionMapper.class
 com/ecc/web/FileServiceApi.class
-com/ecc/web/api/UserServiceApi.class
 com/ecc/FileServiceApplication.class
-com/ecc/web/GlobalExceptionHandler.class
-com/ecc/constants/ApplicationConstants.class
-com/ecc/dao/FileMapper.class
-com/ecc/service/FileService.class
+com/ecc/dao/TicketTransactionMapper.class

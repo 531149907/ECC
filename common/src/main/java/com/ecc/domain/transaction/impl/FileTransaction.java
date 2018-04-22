@@ -2,7 +2,6 @@ package com.ecc.domain.transaction.impl;
 
 import com.ecc.domain.common.Hashable;
 import com.ecc.domain.transaction.Transaction;
-import com.ecc.util.converter.OutputFormatter;
 import com.ecc.util.crypto.HashUtil;
 import lombok.*;
 

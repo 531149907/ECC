@@ -4,8 +4,8 @@ import com.ecc.domain.peer.Peer;
 import com.ecc.domain.security.KeyStorage;
 import com.ecc.exceptions.CustomException;
 import com.ecc.exceptions.ExceptionCollection;
+import com.ecc.handler.BlockHandler;
 import com.ecc.service.RestTemplate;
-import com.ecc.service.block.BlockService;
 import com.ecc.service.contract.ContractService;
 import com.ecc.service.transaction.TransactionService;
 import com.ecc.service.transfer.TransferService;
@@ -14,6 +14,7 @@ import com.ecc.util.crypto.AesUtil;
 import com.ecc.util.crypto.RsaUtil;
 import com.ecc.util.system.NetworkUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,8 +26,6 @@ import static com.ecc.constants.ApplicationConstants.SERVER_URL;
 
 @Service
 public class PeerService {
-    @Autowired
-    BlockService blockService;
     @Autowired
     ContractService contractService;
     @Autowired
@@ -73,14 +72,14 @@ public class PeerService {
         HashMap<String, String> params = new HashMap<>();
         params.put("email", email);
 
-        if(restTemplate.get(SERVER_URL+"api/user-service/peer",params,Peer.class)==null){
+        if (restTemplate.get(SERVER_URL + "api/user-service/peer", params, Peer.class) == null) {
             throw new CustomException(ExceptionCollection.USER_EMAIL_NOT_REGISTERED);
         }
 
         if (RsaUtil.loadKeyPair(email).getPrivateKey() != null) {
             params = restTemplate.get(SERVER_URL + "api/user-service/verify", params, HashMap.class);
 
-            if(RsaUtil.loadKeyPair(email).getPrivateKey() == null){
+            if (RsaUtil.loadKeyPair(email).getPrivateKey() == null) {
                 throw new CustomException(ExceptionCollection.KEY_PRIVATE_KEY_NOT_EXISTS);
             }
 
@@ -113,6 +112,9 @@ public class PeerService {
 
                 //todo: update peer current statues
                 restTemplate.post(SERVER_URL + "api/user-service/login", null, Peer.getInstance(), null);
+
+                BlockHandler.syncBlock();
+
                 return Peer.getInstance();
             }
             throw new CustomException(ExceptionCollection.USER_VERIFICATION_ERROR);
@@ -123,7 +125,8 @@ public class PeerService {
     public List<String> getPeerList(int maxPeers) {
         HashMap<String, String> params = new HashMap<>();
         params.put("token", Peer.getInstance().getToken());
-        List<Peer> instances = restTemplate.get(SERVER_URL + "user-service/peers", params, List.class);
+        List<Peer> instances = restTemplate.get(SERVER_URL + "api/user-service/peers", params, new ParameterizedTypeReference<List<Peer>>() {
+        });
         List<String> tempList = new ArrayList<>();
         List<String> peerList = new ArrayList<>();
 

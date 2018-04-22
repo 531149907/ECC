@@ -8,12 +8,8 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMqConfig {
 
     @Bean
-    public Queue queue1(){
+    public Queue queue1() {
         return new Queue("queue_1");
     }
 
-    @Bean
-    public Queue queue2(){
-        return new Queue("queue_2");
-    }
 }

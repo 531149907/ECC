@@ -15,15 +15,6 @@ public class SpringConfig {
     }
 
     @Bean
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
-        commonsMultipartResolver.setDefaultEncoding("utf-8");
-        commonsMultipartResolver.setMaxUploadSize(1024 * 1024 * 128);
-        commonsMultipartResolver.setMaxInMemorySize(1024 * 4);
-        return commonsMultipartResolver;
-    }
-
-    @Bean
     public TaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(8);

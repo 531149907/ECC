@@ -4,6 +4,7 @@ com/ecc/service/transfer/impl/TransferHandlerImpl$1.class
 com/ecc/service/transaction/impl/TransactionHandlerImpl.class
 com/ecc/service/transaction/TransactionService.class
 com/ecc/util/crypto/AesUtil.class
+com/ecc/service/peer/PeerService$1.class
 com/ecc/service/contract/ContractService.class
 com/ecc/service/block/impl/BlockHandlerImpl.class
 com/ecc/util/crypto/RsaUtil.class
@@ -13,11 +14,12 @@ com/ecc/service/block/impl/BlockHandlerImpl$BlockVisitor.class
 com/ecc/web/ContractApi.class
 com/ecc/web/FileApi.class
 com/ecc/config/SpringConfig.class
+com/ecc/web/exceptions/GlobalExceptionHandler.class
 com/ecc/util/shard/ShardUtil.class
 com/ecc/web/PeerApi.class
+com/ecc/service/transfer/TransferService$1.class
 com/ecc/service/transfer/impl/TransferHandlerImpl.class
 com/ecc/service/block/BlockMessageListener.class
-com/ecc/web/GlobalExceptionHandler.class
 com/ecc/service/block/BlockHandler.class
 com/ecc/service/contract/impl/ContractHandlerImpl.class
 com/ecc/config/RabbitMqConfig.class

@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 @Mapper
 public interface ContractMapper {
-    @Insert("insert into t_contract(id,contract,transactionType,transactionId,transactionHash,timestamp,senderSign,receiverSign) values(#{id},#{contract},#{transactionType},#{transactionId},#{transactionHash},#{timestamp},#{senderSign},#{receiverSign})")
+    @Insert("insert into t_contract(id,channel,transactionType,transactionId,transactionHash,timestamp,senderSign,receiverSign) values(#{id},#{channel},#{transactionType},#{transactionId},#{transactionHash},#{timestamp},#{senderSign},#{receiverSign})")
     void addContract(Contract contract);
 
     @Select("select * from t_contract order by timestamp limit 10")

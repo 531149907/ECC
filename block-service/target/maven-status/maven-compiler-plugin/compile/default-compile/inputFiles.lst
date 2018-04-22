@@ -10,7 +10,6 @@
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/exceptions/ContractException.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/ContractCollector.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/exceptions/StorageException.java
-/Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/web/api/PeerApi.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/web/exceptions/UserException.java
 /Users/zhouzhixuan/Desktop/ECC/block-service/src/main/java/com/ecc/service/BlockService.java

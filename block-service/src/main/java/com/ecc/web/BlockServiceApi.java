@@ -1,16 +1,30 @@
 package com.ecc.web;
 
-import com.ecc.domain.contract.Contract;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.ecc.domain.block.Block;
+import com.ecc.service.BlockService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class BlockServiceApi {
 
-    @PostMapping("upload")
-    void receiveVerifiedContract(@RequestBody Contract contracts) {
+    @Autowired
+    BlockService blockService;
 
+    @GetMapping("block")
+    Block getBlock(@RequestParam("index") Integer index) {
+        return blockService.getBlock(index);
+    }
+
+    @PutMapping("block")
+    void addBlock(@RequestBody byte[] rawBlock) {
+        blockService.addBlock(rawBlock);
+    }
+
+    @GetMapping("blocks")
+    List<Block> getAllBlocks(){
+        return blockService.getAllBlocks();
     }
 }
