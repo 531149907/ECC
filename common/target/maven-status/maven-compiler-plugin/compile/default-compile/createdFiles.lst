@@ -1,5 +1,6 @@
 com/ecc/config/MysqlCommonConfig.class
 com/ecc/web/exceptions/CustomExceptionHandler.class
+com/ecc/handler/MerkleTreeHandler.class
 com/ecc/domain/common/Hashable.class
 com/ecc/domain/transaction/impl/TicketTransaction.class
 com/ecc/domain/block/Block.class
@@ -12,11 +13,14 @@ com/ecc/util/converter/Base64Util.class
 com/ecc/util/crypto/RsaUtil.class
 com/ecc/domain/peer/Peer$PeerHolder.class
 com/ecc/domain/security/KeyStorage.class
+com/ecc/domain/broadcast/BroadcastContent$BroadcastContentBuilder.class
 com/ecc/domain/transaction/PermissionType.class
 com/ecc/constants/ApplicationConstants.class
+com/ecc/domain/broadcast/BroadcastContent.class
 com/ecc/exceptions/CustomException.class
 com/ecc/domain/peer/Peer$PeerBuilder.class
 com/ecc/domain/report/Report$ReportBuilder.class
+com/ecc/handler/BaseContractHandler.class
 com/ecc/util/system/NetworkUtil.class
 com/ecc/domain/contract/Contract$ContractBuilder.class
 com/ecc/domain/peer/Peer.class

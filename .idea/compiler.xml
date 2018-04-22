@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
         <module name="block-service" />
         <module name="common" />
         <module name="contract-service" />
@@ -15,6 +14,7 @@
         <module name="file-service" />
         <module name="orderer-service" />
         <module name="peer" />
+        <module name="testapi" />
         <module name="user-service" />
         <module name="zuul-gateway" />
       </profile>
@@ -29,6 +29,8 @@
       <module name="file-service" target="1.8" />
       <module name="orderer-service" target="1.8" />
       <module name="peer" target="1.8" />
+      <module name="test-api" target="1.8" />
+      <module name="testapi" target="1.8" />
       <module name="user-service" target="1.8" />
       <module name="zuul-gateway" target="1.8" />
     </bytecodeTargetLevel>

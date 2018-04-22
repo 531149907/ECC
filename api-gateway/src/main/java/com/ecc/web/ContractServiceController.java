@@ -2,6 +2,7 @@ package com.ecc.web;
 
 import com.ecc.domain.contract.Contract;
 import com.ecc.service.ContractService;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,4 +24,5 @@ public class ContractServiceController {
     public void receiveSenderSignedContract(@RequestBody Contract contract) {
         contractService.receiveSenderSignedContract(contract);
     }
+
 }

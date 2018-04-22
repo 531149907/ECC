@@ -15,8 +15,8 @@ public interface ContractMapper {
     @Insert("insert into t_contract(id,channel,transactionType,transactionId,transactionHash,timestamp,senderSign,receiverSign) values(#{id},#{channel},#{transactionType},#{transactionId},#{transactionHash},#{timestamp},#{senderSign},#{receiverSign})")
     void addContract(Contract contract);
 
-    @Select("select * from t_contract order by timestamp limit 10")
-    List<Contract> getTop10Contracts();
+    @Select("select * from t_contract order by timestamp limit #{arg0}")
+    List<Contract> getTopContracts(int limit);
 
     @Select("select count(*) from t_contract")
     int getContractsCount();

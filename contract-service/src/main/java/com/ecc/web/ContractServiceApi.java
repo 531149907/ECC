@@ -23,9 +23,9 @@ public class ContractServiceApi {
     }
 
     @GetMapping("contracts")
-    public List<Contract> getTop10contracts() {
+    public List<Contract> getTop10contracts(@RequestParam("limit") Integer limit) {
         try {
-            return contractMapper.getTop10Contracts();
+            return contractMapper.getTopContracts(limit);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -60,7 +60,7 @@ public class ContractService {
         throw new CustomException(ExceptionCollection.CONTRACT_VERIFY_FAILED);
     }
 
-    public void verifyContract(Contract contract) {
+    public Contract verifyContract(Contract contract) {
         HashMap<String, String> params = new HashMap<>();
         params.put("id", contract.getTransactionId());
         params.put("token", Peer.getInstance().getToken());
@@ -92,9 +92,6 @@ public class ContractService {
         String message = contract.getRawMessage() + contract.getSenderSign() + contract.getReceiverSign();
         contract.setVerifierSign(RsaUtil.sign(message, RsaUtil.loadKeyPair(Peer.getInstance().getEmail()).getPrivateKey()));
 
-        taskExecutor.execute(() -> {
-            //todo: 发回给contract-service
-            //blockServiceApi.receiveVerifiedContract(contract);
-        });
+        return contract;
     }
 }

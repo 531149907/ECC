@@ -22,3 +22,8 @@ spring:
     output:
         ansi:
             enabled: always
+    rabbitmq:
+            host: hins.work
+            port: 5672
+            username: admin
+            password: admin

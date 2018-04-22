@@ -25,14 +25,4 @@ public class ContractHandler extends BaseContractHandler {
                 throw new CustomException(ExceptionCollection.CONTRACT_VERIFY_FAILED_NO_SUCH_TYPE_SUPPORT);
         }
     }
-    /*
-    public static Contract extractContractFromBlock(String contractId, Block block) throws Exception {
-        List<Contract> contracts = block.getContracts();
-        for (Contract contract : contracts) {
-            if (contract.getId().equals(contractId)) {
-                return contract;
-            }
-        }
-        throw new Exception("Cannot extract contract in given block!");
-    }*/
 }

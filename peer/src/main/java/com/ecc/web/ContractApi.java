@@ -16,8 +16,8 @@ public class ContractApi {
         contractService.receiverSignContract(contract);
     }
 
-    @PostMapping("verify")
+    /*@PostMapping("verify")
     public void verifyContract(@RequestBody Contract contract) throws Exception {
         contractService.verifyContract(contract);
-    }
+    }*/
 }

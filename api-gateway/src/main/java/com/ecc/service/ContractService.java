@@ -10,6 +10,7 @@ import com.ecc.domain.transaction.impl.FileTransaction;
 import com.ecc.exceptions.CustomException;
 import com.ecc.exceptions.ExceptionCollection;
 import com.ecc.handler.BaseContractHandler;
+import com.ecc.service.runner.ContractCollectorRunner;
 import com.ecc.util.crypto.RsaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.task.TaskExecutor;
@@ -27,6 +28,8 @@ public class ContractService {
     TaskExecutor taskExecutor;
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    ContractCollectorRunner contractCollectorRunner;
 
     public void verifyReceiverSignedContract(Contract contract) {
         FileTransaction transaction = fileService.getFileTransaction(contract.getTransactionId());
@@ -36,8 +39,7 @@ public class ContractService {
             if (BaseContractHandler.verify(Contract.VERIFY_RECEIVER_SIGN, contract,
                     RsaUtil.getPublicKeyFromString(publicKey))) {
                 contractService.addContract(contract);
-                //todo: send contract to block-service
-                //blockServiceApi.sendToBlockService(contract);
+                contractCollectorRunner.run();
             }
         } catch (Exception e) {
             throw new CustomException(ExceptionCollection.CONTRACT_VERIFY_FAILED);
@@ -48,8 +50,7 @@ public class ContractService {
         if (contract.getTransactionType().equals(TransactionType.TICKET)) {
             //ticket只需要sender签名
             contractService.addContract(contract);
-            //todo: send contract to block-service
-            //blockServiceApi.sendToBlockService(contract);
+            contractCollectorRunner.run();
             return;
         }
         taskExecutor.execute(() -> {

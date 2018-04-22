@@ -1,15 +1,7 @@
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/service/contract/impl/ContractHandlerImpl.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/service/exceptions/ContractException.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/service/contract/ContractHandler.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/web/exceptions/UserException.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/config/database/MysqlConfig.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/constants/ApplicationConstants.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java
 /Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/config/SpringConfig.java
 /Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/service/ContractService.java
 /Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/web/exceptions/ContractException.java
 /Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/ContractServiceApplication.java
+/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/config/database/MysqlConfig.java
 /Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/dao/ContractMapper.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/service/exceptions/RestException.java
-/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/service/exceptions/KeyException.java
+/Users/zhouzhixuan/Desktop/ECC/contract-service/src/main/java/com/ecc/constants/Constants.java

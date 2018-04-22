@@ -15,6 +15,8 @@ public class BroadcastContent implements Serializable {
     @JsonIgnore
     public static final String ACTION_BLOCK_RECEIVE = "action_block_receive";
     @JsonIgnore
+    public static final String ACTION_BLOCK_IMPORT = "action_block_import";
+    @JsonIgnore
     public static final String ACTION_FILE_PUSH = "action_file_push";
     @JsonIgnore
     public static final String ACTION_CONTRACT_PUSH = "action_contract_push";

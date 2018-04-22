@@ -1,0 +1,24 @@
+server:
+    port: 29680
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:29600/eureka
+            lease-renewal-interval-in-seconds: 10
+            lease-expiration-duration-in-seconds: 10
+    instance:
+        appname: orderer-service
+
+spring:
+    application:
+        name: orderer-service
+    rabbitmq:
+            host: hins.work
+            port: 5672
+            username: admin
+            password: admin
+    output:
+        ansi:
+            enabled: always
+

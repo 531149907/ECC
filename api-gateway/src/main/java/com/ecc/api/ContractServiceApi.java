@@ -19,7 +19,7 @@ public interface ContractServiceApi {
     void addContract(@RequestBody Contract contract);
 
     @RequestMapping(value = "contracts", method = GET)
-    List<Contract> getTop10contracts();
+    List<Contract> getTopContracts(@RequestParam("limit") Integer limit);
 
     @RequestMapping(value = "contract", method = GET)
     int getContractCount();

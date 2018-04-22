@@ -1,0 +1,5 @@
+server:
+    port: 49600
+logging:
+  pattern:
+    console:

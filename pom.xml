@@ -19,6 +19,7 @@
         <module>orderer-service</module>
         <module>common</module>
         <module>zuul-gateway</module>
+        <module>test-api</module>
     </modules>
 
     <parent>

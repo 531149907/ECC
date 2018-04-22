@@ -2,11 +2,10 @@ package com.ecc.web;
 
 import com.ecc.api.BlockServiceApi;
 import com.ecc.domain.block.Block;
+import com.ecc.domain.contract.Contract;
+import com.ecc.service.runner.ContractCollectorRunner;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,8 @@ public class BlockServiceController {
 
     @Autowired
     BlockServiceApi blockService;
+    @Autowired
+    ContractCollectorRunner contractCollectorRunner;
 
     @GetMapping("blocks")
     List<Block> getBlocks(@RequestParam(value = "index", required = false) String index) {
@@ -33,4 +34,12 @@ public class BlockServiceController {
 
         return blocks;
     }
+
+    @PostMapping("block/contract/verify")
+    void receiveContracts(@RequestParam("key") String key,
+                          @RequestParam("index") Integer index,
+                          @RequestBody List<Contract> contracts){
+        contractCollectorRunner.addToSendBackContracts(index, key, contracts);
+    }
+
 }
