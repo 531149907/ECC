@@ -16,19 +16,31 @@ public class BlockService {
     BlockMapper blockMapper;
 
     public Block getBlock(int index) {
-        byte[] rawBlock = blockMapper.getBlock(index);
-        return (Block) BytesUtil.toObject(rawBlock);
+        try {
+            byte[] rawBlock = blockMapper.getBlock(index);
+            return (Block) BytesUtil.toObject(rawBlock);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void addBlock(byte[] rawBlock) {
-        blockMapper.addBlock(rawBlock);
+        try {
+            blockMapper.addBlock(rawBlock);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Block> getAllBlocks() {
         List<Block> blocks = new ArrayList<>();
-
-        for (byte[] bytes : blockMapper.getAllBlocks()) {
-            blocks.add((Block) BytesUtil.toObject(bytes));
+        try {
+            for (byte[] bytes : blockMapper.getAllBlocks()) {
+                blocks.add((Block) BytesUtil.toObject(bytes));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return blocks;

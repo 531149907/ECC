@@ -3,6 +3,7 @@ package com.ecc.domain.contract;
 import com.ecc.domain.common.Hashable;
 import com.ecc.util.converter.OutputFormatter;
 import com.ecc.util.crypto.HashUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -13,10 +14,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Contract implements Serializable, Hashable {
+    @JsonIgnore
     public static final String SENDER_SIGN = "sender_sign";
+    @JsonIgnore
     public static final String RECEIVER_SIGN = "receiver_sign";
-
+    @JsonIgnore
     public static final String VERIFY_SENDER_SIGN = "verify_sender_sign";
+    @JsonIgnore
     public static final String VERIFY_RECEIVER_SIGN = "verify_receiver_sign";
 
     private String id;

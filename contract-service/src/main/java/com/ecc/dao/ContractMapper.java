@@ -21,6 +21,6 @@ public interface ContractMapper {
     @Select("select count(*) from t_contract")
     int getContractsCount();
 
-    @Delete("delete from t_contract whete id = #{arg0}")
+    @Delete("delete from t_contract where id = #{arg0}")
     void deleteContractById(String id);
 }

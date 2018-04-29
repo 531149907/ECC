@@ -17,169 +17,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00173f48-50a9-4112-a617-38455b700efd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/OrdererServiceApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/config/RabbitMqConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/BlockService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/domain/Content.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/service/BlockList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/service/FileList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/service/NodeList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/service/TransactionList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/java/com/web/AllApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/testapi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_2_0_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_2_0_0_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_0_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_openfeign_core_2_0_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_2_0_0_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_0_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_openfeign_2_0_0_BUILD_SNAPSHOT.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/ContractServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/ContractServiceApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/BlockServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/BlockServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/ContractServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/ContractServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/block-service-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/block-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/block-service-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/block-service-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/constants/ApplicationConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/block-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/block-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/config/SpringConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/BlockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/BlockService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/BlockServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/classes/com/ecc/BlockServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/config/SpringConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/classes/com/ecc/config/SpringConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/dao/BlockMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/classes/com/ecc/dao/BlockMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/BlockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/BlockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/ContractCollector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/VerifiedContractCollector$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/VerifiedContractCollector$Worker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/VerifiedContractCollector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/exceptions/BlockException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/exceptions/ContractException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/exceptions/KeyException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/exceptions/RestException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/exceptions/StateException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/service/exceptions/StorageException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/BlockServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/BlockServiceApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/exceptions/ContractException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/exceptions/CryptoExcetion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/exceptions/FileException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/classes/com/ecc/web/exceptions/UserException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/block-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ecc/domain/broadcast/BroadcastContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ecc/domain/broadcast/BroadcastContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/common-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/common-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/ecc/domain/contract/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/ecc/domain/contract/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/ecc/domain/broadcast/BroadcastContent.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/ecc/domain/broadcast/BroadcastContent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/ecc/domain/contract/Contract$ContractBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/ecc/domain/contract/Contract$ContractBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/ecc/domain/contract/Contract.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/ecc/domain/contract/Contract.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/ContractMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/ContractMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/ContractServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/ContractServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/constants/ApplicationConstants.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/dao/ContractMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/dao/ContractMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/service/contract/ContractHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/service/contract/impl/ContractHandlerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/service/exceptions/ContractException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/service/exceptions/KeyException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/service/exceptions/RestException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/web/ContractServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/web/ContractServiceApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/web/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/web/exceptions/ContractException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/classes/com/ecc/web/exceptions/UserException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/contract-service-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/contract-service-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/contract-service-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/contract-service-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/contract-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-server/target/classes/com/ecc/eurekaserver/EurekaServerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/classes/com/ecc/eurekaserver/EurekaServerApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/target/test-classes/com/ecc/eurekaserver/EurekaServerApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/FileServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/target/classes/com/ecc/FileServiceApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/dao/FileTransactionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/target/classes/com/ecc/dao/FileTransactionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/dao/TicketTransactionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/target/classes/com/ecc/dao/TicketTransactionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file-service/target/classes/com/ecc/web/FileServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/target/classes/com/ecc/web/FileServiceApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file-service/target/file-service-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/target/file-service-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file-service/target/file-service-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/target/file-service-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/OrdererServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/OrdererServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/config/RabbitMqConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/config/RabbitMqConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/dao/AllContractMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/OrdererService.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/OrdererService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/VerifiedContractCollector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/OrdererServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/OrdererServiceApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/api/PeerApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/exceptions/ContractException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/exceptions/CryptoExcetion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/exceptions/FileException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/exceptions/UserException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/OrdererServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/OrdererServiceApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/config/RabbitMqConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/config/RabbitMqConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/config/SpringConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/config/SpringConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/constants/ApplicationConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/dao/AllContractMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/dao/AllContractMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/ContractCollector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/exceptions/BlockException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/exceptions/ContractException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/exceptions/KeyException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/exceptions/RestException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/exceptions/StateException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/exceptions/StorageException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/orderer-service-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/orderer-service-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orderer-service/target/orderer-service-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/orderer-service-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/config/RabbitMqConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/config/RabbitMqConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/handler/ContractHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/handler/ContractHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/OrdererService.class" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/service/OrdererService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/web/OrdererServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/orderer-service/target/classes/com/ecc/web/OrdererServiceApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/ContractApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/peer/src/main/java/com/ecc/web/ContractApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/PeerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/PeerApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/BlockHandler$BlockVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/BlockHandler$BlockVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/BlockHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/BlockHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/config/RabbitMqConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/config/RabbitMqConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/ContractHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/ContractHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/TransactionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/TransactionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/TransferHandler$TempFileVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/TransferHandler$TempFileVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/TransferHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/handler/TransferHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/block/BlockMessageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/block/BlockMessageListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/block/BlockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/block/BlockService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/contract/ContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/contract/ContractService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/peer/PeerService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/peer/PeerService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/peer/PeerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/peer/PeerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transaction/TransactionService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transaction/TransactionService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transaction/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transaction/TransactionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transfer/TransferService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transfer/TransferService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transfer/TransferService.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/service/transfer/TransferService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/crypto/HashUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/crypto/HashUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/crypto/RsaUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/crypto/RsaUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/shard/ShardUtil$LocateFileVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/shard/ShardUtil$LocateFileVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/shard/ShardUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/util/shard/ShardUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/BlockApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/BlockApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/ContractApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/ContractApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/FileApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/FileApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/PeerApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/PeerApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/TicketApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/com/ecc/web/TicketApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/tools/shard/macOS/decoder" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/tools/shard/macOS/decoder" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/classes/tools/shard/macOS/encoder" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/classes/tools/shard/macOS/encoder" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/peer-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/peer-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/peer-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/peer/target/peer-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/test-classes/com/ecc/GsonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/peer/target/test-classes/com/ecc/util/ShardTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/target/classes/com/ecc/UserServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/classes/com/ecc/UserServiceApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/target/classes/com/ecc/dao/PeerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/classes/com/ecc/dao/PeerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/target/classes/com/ecc/dao/VerificationMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/classes/com/ecc/dao/VerificationMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/target/classes/com/ecc/web/UserServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/classes/com/ecc/web/UserServiceApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/target/test-classes/com/ecc/userservice/AesTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/target/user-service-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/user-service-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/target/user-service-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/user-service-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/test-classes/com/ecc/zuulgateway/ZuulGatewayApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/test-classes/com/ecc/zuulgateway/apiTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/zuul-gateway-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/target/zuul-gateway-1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/zuul-gateway.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/com/ecc/ZuulGatewayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/target/classes/com/ecc/ZuulGatewayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/com/ecc/web/api/UserServiceApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/target/classes/com/ecc/web/api/UserServiceApi.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -221,32 +104,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ContractCollectorRunner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java">
+      <file leaf-file-name="MerkleTreeHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/ecc/handler/MerkleTreeHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="105" column="65" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrdererService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/OrdererService.java">
+      <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/src/main/java/com/ecc/domain/block/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            <state relative-caret-position="112">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlockMessageListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state relative-caret-position="253">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user-service/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="56" column="67" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EurekaServerApplication.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/ecc/eurekaserver/EurekaServerApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -292,23 +190,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/dao/AllContractMapper.java" />
-        <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/ContractCollector.java" />
-        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/constants/Constants.java" />
-        <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/domain/VerifiedContractCollector.java" />
-        <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/VerifiedContractCollector.java" />
         <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/exceptions/CustomExceptionHandler.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockService.java" />
         <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/domain/TempBlock.java" />
-        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/dao/BlockMapper.java" />
-        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/BlockService.java" />
         <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/BlockServiceApi.java" />
         <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/BlockServiceApi.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/handler/BlockHandler.java" />
         <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/peer/PeerService.java" />
         <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/dao/BlockTest.java" />
         <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractService.java" />
-        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/ContractMapper.java" />
         <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java" />
         <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/ContractServiceApi.java" />
         <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/ContractServiceController.java" />
@@ -337,12 +227,20 @@
         <option value="$PROJECT_DIR$/orderer-service/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/config/RabbitMqConfig.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/ecc/domain/broadcast/BroadcastContent.java" />
-        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java" />
         <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/BlockServiceController.java" />
-        <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java" />
-        <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/OrdererService.java" />
         <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/web/OrdererServiceApi.java" />
         <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/OrdererServiceApi.java" />
+        <option value="$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/OrdererService.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/ecc/domain/contract/Contract.java" />
+        <option value="$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java" />
+        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/dao/BlockMapper.java" />
+        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/BlockService.java" />
+        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/BlockServiceApplication.java" />
+        <option value="$PROJECT_DIR$/block-service/pom.xml" />
+        <option value="$PROJECT_DIR$/block-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/block-service/src/main/java/com/ecc/config/SpringConfig.java" />
+        <option value="$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java" />
+        <option value="$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/ContractMapper.java" />
       </list>
     </option>
   </component>
@@ -524,7 +422,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -535,343 +432,14 @@
             <path>
               <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
               <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="api-gateway" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="orderer-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="block" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="peer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
               <item name="user-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="ecc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eccmain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ECC" type="462c0819:PsiDirectoryNode" />
-              <item name="user-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -882,7 +450,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RequestMappingsPanelWidth2" value="75" />
-    <property name="SearchEverywhereHistoryKey" value="resttempla&#9;FILE&#9;file:///Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/service/RestTemplate.java&#10;Rabbit&#9;PSI&#9;JAVA://com.ecc.config.RabbitMqConfig&#10;Content&#9;PSI&#9;JAVA://com.netflix.ribbon.proxy.annotation.Content" />
+    <property name="SearchEverywhereHistoryKey" value="Merkle&#9;PSI&#9;JAVA://com.ecc.handler.MerkleTreeHandler&#10;resttempla&#9;FILE&#9;file:///Users/zhouzhixuan/Desktop/ECC/common/src/main/java/com/ecc/service/RestTemplate.java&#10;Rabbit&#9;PSI&#9;JAVA://com.ecc.config.RabbitMqConfig&#10;Content&#9;PSI&#9;JAVA://com.netflix.ribbon.proxy.annotation.Content" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -890,7 +458,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1534225" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -930,58 +498,12 @@
     </option>
     <option name="contentProportion" value="0.23615634" />
   </component>
-  <component name="RunManager" selected="JUnit.ShardTest.mainTest">
+  <component name="RunManager" selected="Spring Boot.Service-Orderer">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="ShardTest.cryptoFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="peer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecc.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ecc.util" />
-      <option name="MAIN_CLASS_NAME" value="com.ecc.util.ShardTest" />
-      <option name="METHOD_NAME" value="cryptoFile" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ShardTest.mainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="peer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ecc.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.ecc.util" />
-      <option name="MAIN_CLASS_NAME" value="com.ecc.util.ShardTest" />
-      <option name="METHOD_NAME" value="mainTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1008,7 +530,7 @@
     <configuration name="Gateway-Zuul" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="zuul-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.ZuulGatewayApplication" />
-      <option name="VM_PARAMETERS" value="-Xmx200m -Xms200m" />
+      <option name="VM_PARAMETERS" value="-Xmx100m -Xms100m" />
       <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
     <configuration name="Peer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -1021,7 +543,13 @@
     <configuration name="Server-Eureka" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.eurekaserver.EurekaServerApplication" />
-      <option name="VM_PARAMETERS" value="-Xms150m -Xmx150m" />
+      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
+    <configuration name="Service-Block" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="block-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.BlockServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Xmx100m -Xms100m" />
       <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
     <configuration name="Service-Contract" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -1033,6 +561,12 @@
     <configuration name="Service-File" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="file-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.FileServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
+    <configuration name="Service-Orderer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="orderer-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ecc.OrdererServiceApplication" />
       <option name="VM_PARAMETERS" value="-Xms100m -Xmx100m" />
       <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
@@ -1081,22 +615,16 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.Peer" />
       <item itemvalue="Spring Boot.Server-Eureka" />
-      <item itemvalue="Spring Boot.Service-User" />
-      <item itemvalue="Spring Boot.Service-File" />
+      <item itemvalue="Spring Boot.Peer" />
       <item itemvalue="Spring Boot.Gateway-Zuul" />
       <item itemvalue="Spring Boot.Gateway-Api" />
+      <item itemvalue="Spring Boot.Service-Block" />
       <item itemvalue="Spring Boot.Service-Contract" />
-      <item itemvalue="JUnit.ShardTest.cryptoFile" />
-      <item itemvalue="JUnit.ShardTest.mainTest" />
+      <item itemvalue="Spring Boot.Service-User" />
+      <item itemvalue="Spring Boot.Service-File" />
+      <item itemvalue="Spring Boot.Service-Orderer" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ShardTest.mainTest" />
-        <item itemvalue="JUnit.ShardTest.cryptoFile" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -1125,7 +653,11 @@
       <workItem from="1524108551761" duration="51477000" />
       <workItem from="1524234867356" duration="22834000" />
       <workItem from="1524364184109" duration="407000" />
-      <workItem from="1524365250999" duration="23991000" />
+      <workItem from="1524365250999" duration="33782000" />
+      <workItem from="1524666367954" duration="54000" />
+      <workItem from="1524666488401" duration="249000" />
+      <workItem from="1524792926820" duration="422000" />
+      <workItem from="1524875720748" duration="1121000" />
     </task>
     <servers />
   </component>
@@ -1162,7 +694,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285230000" />
+    <option name="totallyTimeSpent" value="296867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1189,27 +721,27 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" side_tool="true" weight="0.32827586" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.51628274" side_tool="true" weight="0.40551725" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="0" weight="0.32827586" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" content_ui="combo" id="Run Dashboard" order="1" sideWeight="0.48371723" weight="0.40551725" />
+      <window_info active="true" anchor="bottom" content_ui="combo" id="Run Dashboard" order="1" sideWeight="0.48371723" visible="true" weight="0.46896553" />
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="9" weight="0.32827586" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48212868" weight="0.32413793" />
       <window_info anchor="bottom" id="Spring" order="3" weight="0.32827586" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49192247" weight="0.32689655" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49776787" visible="true" weight="0.28038126" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.49776787" visible="true" weight="0.28038126" />
       <window_info anchor="right" id="Bean Validation" order="7" show_stripe_button="false" weight="0.32956383" />
       <window_info id="Web" order="0" show_stripe_button="false" sideWeight="0.50223213" side_tool="true" weight="0.32883242" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32689655" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" show_stripe_button="false" sideWeight="0.50223213" side_tool="true" weight="0.32883242" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.51628274" side_tool="true" weight="0.40551725" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32689655" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1249,10 +781,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="466" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="464" />
+      <option name="time" value="467" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -1274,126 +814,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/ContractMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/web/ContractServiceApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/api/ContractServiceApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/CollectorThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/service/ContractService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/test-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="39" column="16" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/service/AllService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/service/FileList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/service/NodeList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/service/BlockList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/service/TransactionList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/domain/Content.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding>
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-api/src/main/java/com/web/AllApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-api/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1440,13 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="74" column="36" lean-forward="true" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-          <folding>
-            <element signature="method#getBlock#0;class#BlockHandler#0" />
-            <element signature="method#getBlocks#0;class#BlockHandler#0" />
-            <element signature="method#importMissingContracts#0;class#BlockHandler#0" />
-            <element signature="method#flushBlocks#0;class#BlockHandler#0" />
-            <element signature="class#BlockVisitor#0;class#BlockHandler#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1475,16 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="method#show#0;class#Peer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/dao/BlockMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1492,11 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1514,38 +912,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/ContractService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/FileService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
           <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/ContractServiceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="57" column="21" selection-start-line="54" selection-start-column="8" selection-end-line="57" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1584,13 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/orderer-service/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/config/RabbitMqConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1605,30 +968,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/BlockService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/BlockServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="105" column="65" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1646,17 +989,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java">
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/ecc/domain/contract/Contract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        <state relative-caret-position="22">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orderer-service/src/main/java/com/ecc/service/OrdererService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        <state relative-caret-position="315">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-gateway/src/main/java/com/ecc/ZuulGatewayApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orderer-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/dao/BlockMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/service/BlockService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/web/BlockServiceApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/BlockServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="51" column="21" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="51" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="19" column="102" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="24" column="106" selection-start-line="24" selection-start-column="106" selection-end-line="24" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/block-service/src/main/java/com/ecc/config/SpringConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/BlockService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/ContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/ecc/service/RestTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/block/BlockMessageListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/web/ContractServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peer/src/main/java/com/ecc/service/contract/ContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/java/com/ecc/service/runner/ContractCollectorRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="80" column="48" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contract-service/src/main/java/com/ecc/dao/ContractMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/ecc/handler/MerkleTreeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/ecc/domain/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="67" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/ecc/eurekaserver/EurekaServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>

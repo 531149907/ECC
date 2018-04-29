@@ -54,6 +54,7 @@ public class ContractCollectorRunner {
 
     public void run() {
         if (!isRunning) {
+            isRunning = true;
             new Runnable() {
                 @Override
                 public void run() {
